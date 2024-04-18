@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/04/2024 às 19:46
+-- Tempo de geração: 18/04/2024 às 02:02
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -126,6 +126,9 @@ CREATE TABLE `tbevento` (
   `cidadeEvento` varchar(30) DEFAULT NULL,
   `ufEvento` char(2) DEFAULT NULL,
   `dataEvento` date DEFAULT NULL,
+  `faixaEtariaEvento` varchar(30) NOT NULL,
+  `periodoEvento` varchar(30) NOT NULL,
+  `valorEvento` varchar(30) NOT NULL,
   `descEvento` varchar(500) NOT NULL,
   `idOrganizacaoEvento` int(11) DEFAULT NULL,
   `imagemEvento` varchar(50) NOT NULL
@@ -135,8 +138,8 @@ CREATE TABLE `tbevento` (
 -- Despejando dados para a tabela `tbevento`
 --
 
-INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`) VALUES
-(1, 'Mundo bita', '44444-444', 'rua rio', '4', 'casa 1', 'parque', 'são paulo ', 'sp', '2024-04-15', 'show', 1, '6ae70206d373ca335745dabee141081e.jpg');
+INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`) VALUES
+(2, 'Chaves: exposição ', '44444-444', 'rua rio', '4', 'casa 1', 'parque', 'são paulo ', 'sp', '2024-04-17', '1', '1', '1', '“Gostaria de entrar para uma xícara de café?” Se você (assim como nós rs) chegava da escola com pressa para não perder nenhum episódio, esse passeio é especialmente para você! Chaves, Chiquinha, Nhonho, a Bruxa do 71 e outros personagens que ficaram marcados na história da TV esperam por você na mostra “Chaves: A Exposição”  que seguirá até dia 02 de junho de 2024. ', 1, 'aec4551f1a7a369137d3e3c37d168a5e.jpg');
 
 -- --------------------------------------------------------
 
@@ -147,18 +150,6 @@ INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`,
 CREATE TABLE `tbeventoarquivado` (
   `idEventoArquivado` int(11) NOT NULL,
   `estadoEventoArquivado` tinyint(1) DEFAULT NULL,
-  `idEvento` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `tbfaixaetaria`
---
-
-CREATE TABLE `tbfaixaetaria` (
-  `idFaixaEtaria` int(11) NOT NULL,
-  `idadeFaixaEtaria` varchar(20) DEFAULT NULL,
   `idEvento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -287,18 +278,6 @@ CREATE TABLE `tbpublicacaoarquivada` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtelusuario`
---
-
-CREATE TABLE `tbtelusuario` (
-  `idTelUsuario` int(11) NOT NULL,
-  `numTelUsuario` varchar(15) DEFAULT NULL,
-  `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `tbtokenadmin`
 --
 
@@ -335,18 +314,6 @@ CREATE TABLE `tbtokenusuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbturnoevento`
---
-
-CREATE TABLE `tbturnoevento` (
-  `idTurnoEvento` int(11) NOT NULL,
-  `periodoTurnoEvento` varchar(10) DEFAULT NULL,
-  `idEvento` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `tbusuario`
 --
 
@@ -356,6 +323,7 @@ CREATE TABLE `tbusuario` (
   `sobrenomeUsuario` varchar(60) DEFAULT NULL,
   `emailUsuario` varchar(60) DEFAULT NULL,
   `senhaUsuario` varchar(30) DEFAULT NULL,
+  `telUsuario` char(14) NOT NULL,
   `imagemPerfilUsuario` varchar(40) DEFAULT NULL,
   `imagemBannerUsuario` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -364,8 +332,8 @@ CREATE TABLE `tbusuario` (
 -- Despejando dados para a tabela `tbusuario`
 --
 
-INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailUsuario`, `senhaUsuario`, `imagemPerfilUsuario`, `imagemBannerUsuario`) VALUES
-(1, 'Bruno', 'Geanini', 'Bruno@gmail.com', '1234', 'akdwhlawihd', 'ihwdahwladhiilhdwa');
+INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailUsuario`, `senhaUsuario`, `telUsuario`, `imagemPerfilUsuario`, `imagemBannerUsuario`) VALUES
+(1, 'Bruno', 'Geanini', 'Bruno@gmail.com', '1234', '', 'akdwhlawihd', 'ihwdahwladhiilhdwa');
 
 -- --------------------------------------------------------
 
@@ -377,18 +345,6 @@ CREATE TABLE `tbusuarioseguindo` (
   `idSeguindo` int(11) NOT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `idOrganizacaoEvento` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `tbvalorevento`
---
-
-CREATE TABLE `tbvalorevento` (
-  `idValorEvento` int(11) NOT NULL,
-  `valorEvento` float DEFAULT NULL,
-  `idEvento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -488,13 +444,6 @@ ALTER TABLE `tbeventoarquivado`
   ADD KEY `idEvento` (`idEvento`);
 
 --
--- Índices de tabela `tbfaixaetaria`
---
-ALTER TABLE `tbfaixaetaria`
-  ADD PRIMARY KEY (`idFaixaEtaria`),
-  ADD KEY `idEvento` (`idEvento`);
-
---
 -- Índices de tabela `tbfeedbackapp`
 --
 ALTER TABLE `tbfeedbackapp`
@@ -551,13 +500,6 @@ ALTER TABLE `tbpublicacaoarquivada`
   ADD KEY `idPublicacao` (`idPublicacao`);
 
 --
--- Índices de tabela `tbtelusuario`
---
-ALTER TABLE `tbtelusuario`
-  ADD PRIMARY KEY (`idTelUsuario`),
-  ADD KEY `idUsuario` (`idUsuario`);
-
---
 -- Índices de tabela `tbtokenadmin`
 --
 ALTER TABLE `tbtokenadmin`
@@ -579,13 +521,6 @@ ALTER TABLE `tbtokenusuario`
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Índices de tabela `tbturnoevento`
---
-ALTER TABLE `tbturnoevento`
-  ADD PRIMARY KEY (`idTurnoEvento`),
-  ADD KEY `idEvento` (`idEvento`);
-
---
 -- Índices de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
@@ -598,13 +533,6 @@ ALTER TABLE `tbusuarioseguindo`
   ADD PRIMARY KEY (`idSeguindo`),
   ADD KEY `idUsuario` (`idUsuario`),
   ADD KEY `idOrganizacaoEvento` (`idOrganizacaoEvento`);
-
---
--- Índices de tabela `tbvalorevento`
---
-ALTER TABLE `tbvalorevento`
-  ADD PRIMARY KEY (`idValorEvento`),
-  ADD KEY `idEvento` (`idEvento`);
 
 --
 -- Índices de tabela `tbverificacaotokenadmin`
@@ -671,19 +599,13 @@ ALTER TABLE `tbcontatousuario`
 -- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbeventoarquivado`
 --
 ALTER TABLE `tbeventoarquivado`
   MODIFY `idEventoArquivado` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `tbfaixaetaria`
---
-ALTER TABLE `tbfaixaetaria`
-  MODIFY `idFaixaEtaria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbfeedbackapp`
@@ -734,12 +656,6 @@ ALTER TABLE `tbpublicacaoarquivada`
   MODIFY `idPublicacaoArquivada` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbtelusuario`
---
-ALTER TABLE `tbtelusuario`
-  MODIFY `idTelUsuario` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `tbtokenadmin`
 --
 ALTER TABLE `tbtokenadmin`
@@ -758,12 +674,6 @@ ALTER TABLE `tbtokenusuario`
   MODIFY `idTokenUsuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `tbturnoevento`
---
-ALTER TABLE `tbturnoevento`
-  MODIFY `idTurnoEvento` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
@@ -774,12 +684,6 @@ ALTER TABLE `tbusuario`
 --
 ALTER TABLE `tbusuarioseguindo`
   MODIFY `idSeguindo` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `tbvalorevento`
---
-ALTER TABLE `tbvalorevento`
-  MODIFY `idValorEvento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbverificacaotokenadmin`
@@ -847,12 +751,6 @@ ALTER TABLE `tbeventoarquivado`
   ADD CONSTRAINT `tbeventoarquivado_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
 
 --
--- Restrições para tabelas `tbfaixaetaria`
---
-ALTER TABLE `tbfaixaetaria`
-  ADD CONSTRAINT `tbfaixaetaria_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
-
---
 -- Restrições para tabelas `tbfeedbackapp`
 --
 ALTER TABLE `tbfeedbackapp`
@@ -896,12 +794,6 @@ ALTER TABLE `tbpublicacaoarquivada`
   ADD CONSTRAINT `tbpublicacaoarquivada_ibfk_1` FOREIGN KEY (`idPublicacao`) REFERENCES `tbpublicacao` (`idPublicacao`);
 
 --
--- Restrições para tabelas `tbtelusuario`
---
-ALTER TABLE `tbtelusuario`
-  ADD CONSTRAINT `tbtelusuario_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
-
---
 -- Restrições para tabelas `tbtokenadmin`
 --
 ALTER TABLE `tbtokenadmin`
@@ -920,23 +812,11 @@ ALTER TABLE `tbtokenusuario`
   ADD CONSTRAINT `tbtokenusuario_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Restrições para tabelas `tbturnoevento`
---
-ALTER TABLE `tbturnoevento`
-  ADD CONSTRAINT `tbturnoevento_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
-
---
 -- Restrições para tabelas `tbusuarioseguindo`
 --
 ALTER TABLE `tbusuarioseguindo`
   ADD CONSTRAINT `tbusuarioseguindo_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
   ADD CONSTRAINT `tbusuarioseguindo_ibfk_2` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`);
-
---
--- Restrições para tabelas `tbvalorevento`
---
-ALTER TABLE `tbvalorevento`
-  ADD CONSTRAINT `tbvalorevento_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
 
 --
 -- Restrições para tabelas `tbverificacaotokenadmin`
