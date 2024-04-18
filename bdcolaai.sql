@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/04/2024 às 02:02
+-- Tempo de geração: 18/04/2024 às 04:43
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -139,7 +139,7 @@ CREATE TABLE `tbevento` (
 --
 
 INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`) VALUES
-(2, 'Chaves: exposição ', '44444-444', 'rua rio', '4', 'casa 1', 'parque', 'são paulo ', 'sp', '2024-04-17', '1', '1', '1', '“Gostaria de entrar para uma xícara de café?” Se você (assim como nós rs) chegava da escola com pressa para não perder nenhum episódio, esse passeio é especialmente para você! Chaves, Chiquinha, Nhonho, a Bruxa do 71 e outros personagens que ficaram marcados na história da TV esperam por você na mostra “Chaves: A Exposição”  que seguirá até dia 02 de junho de 2024. ', 1, 'aec4551f1a7a369137d3e3c37d168a5e.jpg');
+(2, 'Chaves: exposição ', '44444-444', 'rua rio', '4', 'casa 1', 'parque', 'são paulo ', 'sp', '2024-04-17', 'Selecione a faixa etária', 'Selecione o turno', 'Selecione o valor', '“Gostaria de entrar para uma xícara de café?” Se você (assim como nós rs) chegava da escola com pressa para não perder nenhum episódio, esse passeio é especialmente para você! Chaves, Chiquinha, Nhonho, a Bruxa do 71 e outros personagens que ficaram marcados na história da TV esperam por você na mostra “Chaves: A Exposição”  que seguirá até dia 02 de junho de 2024. ', 1, 'aec4551f1a7a369137d3e3c37d168a5e.jpg');
 
 -- --------------------------------------------------------
 
@@ -260,8 +260,16 @@ CREATE TABLE `tbpublicacao` (
   `tituloPublicacao` varchar(50) DEFAULT NULL,
   `descPublicacao` varchar(300) DEFAULT NULL,
   `linkOrganizacaoEvento` varchar(2000) DEFAULT NULL,
-  `idEvento` int(11) DEFAULT NULL
+  `imagemPublicacao` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbpublicacao`
+--
+
+INSERT INTO `tbpublicacao` (`idPublicacao`, `tituloPublicacao`, `descPublicacao`, `linkOrganizacaoEvento`, `imagemPublicacao`) VALUES
+(1, 'chaves', 'oi', NULL, 'a617ca13000aa4aa796dd60109dab3'),
+(2, 'chaves  2', 'oi oi ', NULL, 'b3ed057f09cdd3df96ff4190a578bb');
 
 -- --------------------------------------------------------
 
@@ -489,8 +497,7 @@ ALTER TABLE `tborganizacaoevento`
 -- Índices de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  ADD PRIMARY KEY (`idPublicacao`),
-  ADD KEY `idEvento` (`idEvento`);
+  ADD PRIMARY KEY (`idPublicacao`);
 
 --
 -- Índices de tabela `tbpublicacaoarquivada`
@@ -647,7 +654,7 @@ ALTER TABLE `tborganizacaoevento`
 -- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbpublicacaoarquivada`
@@ -780,12 +787,6 @@ ALTER TABLE `tbimagempublicacao`
 ALTER TABLE `tbinteresseevento`
   ADD CONSTRAINT `tbinteresseevento_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
   ADD CONSTRAINT `tbinteresseevento_ibfk_2` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
-
---
--- Restrições para tabelas `tbpublicacao`
---
-ALTER TABLE `tbpublicacao`
-  ADD CONSTRAINT `tbpublicacao_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
 
 --
 -- Restrições para tabelas `tbpublicacaoarquivada`
