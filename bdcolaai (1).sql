@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/05/2024 às 09:17
+-- Tempo de geração: 07/05/2024 às 08:43
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -124,6 +124,13 @@ CREATE TABLE `tbevento` (
   `idSituacaoEvento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `tbevento`
+--
+
+INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `espacoEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`, `idSituacaoEvento`) VALUES
+(8, 'Anime Friends', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-29', '5', '2', '2', '1', 'Evento para amantes de anime', 8, 'c9be61905092dff69279b128d828e4b8.jpg', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -183,7 +190,8 @@ INSERT INTO `tborganizacaoevento` (`idOrganizacaoEvento`, `nomeOrganizacaoEvento
 (7, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '00000', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(11)11111-1111', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2),
 (8, 'Anime Friends', '111111111111111111', '08537330', 'Rua Francisco de paula', '1234', 'aaaa', 'Jardim bandeirantes', 'Ferraz', 'SP', '1111111111111', 'AnimeFriends@gmail.com', '1234', NULL, NULL, NULL, 2),
 (9, 'Futebol', '111111111111111111', '08537330', 'Rua Francisco de paula', '1234', 'aaaa', 'Jardim bandeirantes', 'São Paulo', 'SP', '1111111111111', 'AnimeFriendsaaa@gmail.com', '1234', NULL, NULL, NULL, 3),
-(10, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2);
+(10, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2),
+(11, 'Ipiranga', '11.111.111/1111-11', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'FelipeGeanini12@gmail.com', '1234', NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -195,11 +203,17 @@ CREATE TABLE `tbpublicacao` (
   `idPublicacao` int(11) NOT NULL,
   `tituloPublicacao` varchar(50) DEFAULT NULL,
   `descPublicacao` varchar(300) DEFAULT NULL,
-  `linkOrganizacaoEvento` varchar(2000) DEFAULT NULL,
-  `imagemPublicacao` varchar(30) NOT NULL,
-  `idEvento` int(11) NOT NULL,
+  `LinkOrganizacaoEvento` varchar(2000) DEFAULT NULL,
+  `idOrganizacaoEvento` int(11) DEFAULT NULL,
   `idSituacaoPublicacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbpublicacao`
+--
+
+INSERT INTO `tbpublicacao` (`idPublicacao`, `tituloPublicacao`, `descPublicacao`, `LinkOrganizacaoEvento`, `idOrganizacaoEvento`, `idSituacaoPublicacao`) VALUES
+(1, 'Hoje a tarde', 'Neymar vai estar na praça', NULL, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -211,6 +225,14 @@ CREATE TABLE `tbsituacaoevento` (
   `idSituacaoEvento` int(11) NOT NULL,
   `situacaoEvento` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbsituacaoevento`
+--
+
+INSERT INTO `tbsituacaoevento` (`idSituacaoEvento`, `situacaoEvento`) VALUES
+(1, 'Ativo'),
+(2, 'Arquivado');
 
 -- --------------------------------------------------------
 
@@ -242,6 +264,14 @@ CREATE TABLE `tbsituacaopublicacao` (
   `idSituacaoPublicacao` int(11) NOT NULL,
   `situacaoPublicacao` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbsituacaopublicacao`
+--
+
+INSERT INTO `tbsituacaopublicacao` (`idSituacaoPublicacao`, `situacaoPublicacao`) VALUES
+(1, 'Ativo'),
+(2, 'Arquivado');
 
 -- --------------------------------------------------------
 
@@ -392,8 +422,8 @@ ALTER TABLE `tborganizacaoevento`
 --
 ALTER TABLE `tbpublicacao`
   ADD PRIMARY KEY (`idPublicacao`),
-  ADD KEY `fk_tbEvento` (`idEvento`),
-  ADD KEY `fk_tbSituacaoPublicacao` (`idSituacaoPublicacao`);
+  ADD KEY `fk_OrganizacaoEvento_tbPub` (`idOrganizacaoEvento`),
+  ADD KEY `fk_idSituacaoPub` (`idSituacaoPublicacao`);
 
 --
 -- Índices de tabela `tbsituacaoevento`
@@ -486,7 +516,7 @@ ALTER TABLE `tbcontatousuario`
 -- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `tbfeedbackapp`
@@ -504,19 +534,19 @@ ALTER TABLE `tbinteresseevento`
 -- AUTO_INCREMENT de tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
-  MODIFY `idOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbsituacaoevento`
 --
 ALTER TABLE `tbsituacaoevento`
-  MODIFY `idSituacaoEvento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSituacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbsituacaoorganizacaoevento`
@@ -528,7 +558,7 @@ ALTER TABLE `tbsituacaoorganizacaoevento`
 -- AUTO_INCREMENT de tabela `tbsituacaopublicacao`
 --
 ALTER TABLE `tbsituacaopublicacao`
-  MODIFY `idSituacaoPublicacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSituacaoPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbtokenadmin`
@@ -608,8 +638,8 @@ ALTER TABLE `tborganizacaoevento`
 -- Restrições para tabelas `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  ADD CONSTRAINT `fk_tbEvento` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`),
-  ADD CONSTRAINT `fk_tbSituacaoPublicacao` FOREIGN KEY (`idSituacaoPublicacao`) REFERENCES `tbsituacaopublicacao` (`idSituacaoPublicacao`);
+  ADD CONSTRAINT `fk_OrganizacaoEvento_tbPub` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`),
+  ADD CONSTRAINT `fk_idSituacaoPub` FOREIGN KEY (`idSituacaoPublicacao`) REFERENCES `tbsituacaopublicacao` (`idSituacaoPublicacao`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
