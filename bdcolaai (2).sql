@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/05/2024 às 08:43
+-- Tempo de geração: 14/05/2024 às 10:15
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -43,9 +43,7 @@ CREATE TABLE `tbadmin` (
 --
 
 INSERT INTO `tbadmin` (`idAdmin`, `nomeAdmin`, `sobrenomeAdmin`, `cpfAdmin`, `dataNascAdmin`, `emailAdmin`, `senhaAdmin`, `fotoPerfilAdmin`) VALUES
-(1, 'Brun', 'Geanini', '574.489.768-33', '2024-03-29', 'Bruno@gmail', '1234', '396cf04b94a9d1f729a1f04435dc6a35.jpg'),
-(2, 'Bruno', 'Geanini', '574.489.768-22', '2004-05-25', 'Bruno@gmail.com', '1234', '2ae6b30e3edbeb47c6af0c4d97103cad.jpg'),
-(3, 'Stephanie', 'silva', '444.444.444-44', '1999-01-29', 'admin@teste.com', '1234', 'e310347bb0e038aa3366f86519b386ae.jpg');
+(4, 'ADM ', 'Padrão', '111111111111', '0000-00-00', 'admin@padrao.com', 'Senha12345#', NULL);
 
 -- --------------------------------------------------------
 
@@ -113,12 +111,12 @@ CREATE TABLE `tbevento` (
   `bairroEvento` varchar(20) DEFAULT NULL,
   `cidadeEvento` varchar(30) DEFAULT NULL,
   `ufEvento` char(2) DEFAULT NULL,
-  `dataEvento` date DEFAULT NULL,
-  `faixaEtariaEvento` varchar(30) NOT NULL,
+  `dataEvento` date NOT NULL,
+  `faixaEtariaEvento` varchar(50) NOT NULL,
   `periodoEvento` varchar(30) NOT NULL,
   `valorEvento` varchar(30) NOT NULL,
   `espacoEvento` varchar(30) NOT NULL,
-  `descEvento` varchar(500) NOT NULL,
+  `descEvento` varchar(1000) NOT NULL,
   `idOrganizacaoEvento` int(11) DEFAULT NULL,
   `imagemEvento` varchar(50) NOT NULL,
   `idSituacaoEvento` int(11) NOT NULL
@@ -129,7 +127,12 @@ CREATE TABLE `tbevento` (
 --
 
 INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `espacoEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`, `idSituacaoEvento`) VALUES
-(8, 'Anime Friends', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-29', '5', '2', '2', '1', 'Evento para amantes de anime', 8, 'c9be61905092dff69279b128d828e4b8.jpg', 2);
+(10, 'Hora do Conto', '02030-100', 'Avenida Cruzeiro do Sul', '2630', '', 'Canindé', 'São Paulo', 'SP', '2024-05-25', '5', '2', '1', '4', 'Entre no mundo da aventura e imaginação!', 16, '7e4b9dc76fd472fe9dddaf32c722edb5.jpg', 1),
+(11, 'Lê no ninho', '02030-100', 'Avenida Cruzeiro do Sul', '2630', '', 'Canindé', 'São Paulo', 'SP', '2024-05-26', '3', '1', '1', '4', 'Experiência de interação com a leitura para bebês e crianças de 6 meses a 4 anos.', 16, '5274336147f38e0259c444834bfd47aa.jpg', 1),
+(12, 'Brincando e Aprendendo', '02030-100', 'Avenida Cruzeiro do Sul', '2630', '', 'Canindé', 'São Paulo', 'SP', '2024-05-16', '4', '2', '1', '4', 'Venha jogar e participar de gincanas com a gente.', 16, 'bc462d368a5f0487371b123d9a484faf.jpg', 1),
+(14, 'Festa do sorvete', '08460-365', 'Rua Feliciano de Mendonça', '290', '', 'Jardim São Paulo(Zon', 'São Paulo', 'SP', '2024-05-11', '5', '2', '1', '4', 'Venha aproveitar nesse calor com sua família. Teremos sorvete de todos os sabores, mexerica, bis, feijoada e temaki. Aproveite!', 18, '9ff09e74b981417a1161eea333bcfb6c.jpg', 1),
+(16, 'Anime Friends', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-25', '5', '2', '1', '1', 'ATA', 15, '22c7ebca44e36fdcc93b831024b85f6b.jpg', 1),
+(17, 'Neyday', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-25', '4', '1', '1', '3', 'aaaaaaaaaaaaaaaa', 15, '020704bf1ba5262a9c1bbb03a553286d.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -155,6 +158,14 @@ CREATE TABLE `tbinteresseevento` (
   `idUsuario` int(11) DEFAULT NULL,
   `idEvento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbinteresseevento`
+--
+
+INSERT INTO `tbinteresseevento` (`idInteresseEvento`, `idUsuario`, `idEvento`) VALUES
+(1, 5, 17),
+(2, 5, 16);
 
 -- --------------------------------------------------------
 
@@ -187,11 +198,11 @@ CREATE TABLE `tborganizacaoevento` (
 --
 
 INSERT INTO `tborganizacaoevento` (`idOrganizacaoEvento`, `nomeOrganizacaoEvento`, `cnpjOrganizacaoEvento`, `cepOrganizacaoEvento`, `enderecoOrganizacaoEvento`, `numeroOrganizacaoEvento`, `complementoOrganizacaoEvento`, `bairroOrganizacaoEvento`, `cidadeOrganizacaoEvento`, `ufOrganizacaoEvento`, `telOrganizacaoEvento`, `emailOrganizacaoEvento`, `senhaOrganizacaoEvento`, `linkSiteOrganizacaoEvento`, `imagemOrganizacaoEvento`, `descOrganizacaoEvento`, `idSituacaoOrganizacaoEvento`) VALUES
-(7, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '00000', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(11)11111-1111', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2),
-(8, 'Anime Friends', '111111111111111111', '08537330', 'Rua Francisco de paula', '1234', 'aaaa', 'Jardim bandeirantes', 'Ferraz', 'SP', '1111111111111', 'AnimeFriends@gmail.com', '1234', NULL, NULL, NULL, 2),
-(9, 'Futebol', '111111111111111111', '08537330', 'Rua Francisco de paula', '1234', 'aaaa', 'Jardim bandeirantes', 'São Paulo', 'SP', '1111111111111', 'AnimeFriendsaaa@gmail.com', '1234', NULL, NULL, NULL, 3),
-(10, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2),
-(11, 'Ipiranga', '11.111.111/1111-11', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'FelipeGeanini12@gmail.com', '1234', NULL, NULL, NULL, 2);
+(12, 'Centro Cultural de São Paulo', '49.269.244/0006-78', '01504000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '(11)33974-002', 'centroculturalsp@gmail.com', 'Senha12345#', NULL, NULL, NULL, 2),
+(15, 'Fabrica de Cultura Parque Belem', '00.000.000/0000-00', '03015-00', 'Avenida Celso Garcia', '2231', '', 'Brás', 'São Paulo', 'SP', '(11)26183-447', 'fabricadecultura@belem.com', 'Senha12345#', NULL, NULL, NULL, 2),
+(16, 'Biblioteca de São Paulo', '00.000.000/0000-00', '02030-10', 'Avenida Cruzeiro do Sul', '2630', '', 'Canindé', 'São Paulo', 'SP', '(01)12089-0800', 'biblioteca@sp.com', 'Senha12345#', NULL, NULL, NULL, 2),
+(17, 'Fabrica de Cultura Cidade Tiradentes', '08.698.186/0004-59', '08421-53', 'Avenida Henriqueta Noguez Brieba', '281', '', 'Conjunto Habitaciona', 'São Paulo', 'SP', '(11)25563-624', 'fabricadecultura@tiradentes.com', 'Senha12345#', NULL, NULL, NULL, 2),
+(18, 'Etec de Guaianazes', '62.823.257/0119-01', '08460-36', 'Rua Feliciano de Mendonça', '290', 'ND', 'Jardim São Paulo(Zon', 'São Paulo', 'SP', '(11)92829-2829', 'qualquercoisa@gmail.com', '12345678@', NULL, NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -213,7 +224,9 @@ CREATE TABLE `tbpublicacao` (
 --
 
 INSERT INTO `tbpublicacao` (`idPublicacao`, `tituloPublicacao`, `descPublicacao`, `LinkOrganizacaoEvento`, `idOrganizacaoEvento`, `idSituacaoPublicacao`) VALUES
-(1, 'Hoje a tarde', 'Neymar vai estar na praça', NULL, 8, 2);
+(2, 'Teste', 'teste', NULL, 12, 2),
+(3, 'teste 2 ', 'teste 2', NULL, 12, 1),
+(4, 'Modo Circo', 'Evento que aconteceu hoje dia 29/05/2024 e se extenderá até julho. Venha participar!!!', NULL, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -331,9 +344,7 @@ CREATE TABLE `tbusuario` (
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailUsuario`, `senhaUsuario`, `telUsuario`, `imagemPerfilUsuario`, `imagemBannerUsuario`) VALUES
-(1, 'Bruno', 'Geanini', 'Bruno@gmail.com', '1234', '', 'akdwhlawihd', 'ihwdahwladhiilhdwa'),
-(4, 'Bruno', 'Geanini', 'bruno@gmail.com', '1234', '(11)98264-7313', NULL, NULL),
-(5, 'Bruno', 'Geanini', 'bruno@gmail.com', '1234', '(11)98264-7313', NULL, NULL);
+(5, 'Usuário', 'Teste', 'usuario@teste.com', '12345', '0000000000000', 'ac14d370b3e560c8f707404afcc258af.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -486,7 +497,7 @@ ALTER TABLE `tbusuarioseguindo`
 -- AUTO_INCREMENT de tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriacontatoorganizacaoevento`
@@ -516,7 +527,7 @@ ALTER TABLE `tbcontatousuario`
 -- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `tbfeedbackapp`
@@ -528,19 +539,19 @@ ALTER TABLE `tbfeedbackapp`
 -- AUTO_INCREMENT de tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
-  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
-  MODIFY `idOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tbsituacaoevento`
