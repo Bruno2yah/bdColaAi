@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/05/2024 às 17:51
+-- Tempo de geração: 16-Maio-2024 às 19:07
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbadmin`
+-- Estrutura da tabela `tbadmin`
 --
 
 CREATE TABLE `tbadmin` (
@@ -39,7 +39,7 @@ CREATE TABLE `tbadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbadmin`
+-- Extraindo dados da tabela `tbadmin`
 --
 
 INSERT INTO `tbadmin` (`idAdmin`, `nomeAdmin`, `sobrenomeAdmin`, `cpfAdmin`, `dataNascAdmin`, `emailAdmin`, `senhaAdmin`, `fotoPerfilAdmin`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `tbadmin` (`idAdmin`, `nomeAdmin`, `sobrenomeAdmin`, `cpfAdmin`, `da
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcategoriacontatoorganizacaoevento`
+-- Estrutura da tabela `tbcategoriacontatoorganizacaoevento`
 --
 
 CREATE TABLE `tbcategoriacontatoorganizacaoevento` (
@@ -60,7 +60,7 @@ CREATE TABLE `tbcategoriacontatoorganizacaoevento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcategoriacontatousuario`
+-- Estrutura da tabela `tbcategoriacontatousuario`
 --
 
 CREATE TABLE `tbcategoriacontatousuario` (
@@ -71,7 +71,7 @@ CREATE TABLE `tbcategoriacontatousuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcontatoorganizacaoevento`
+-- Estrutura da tabela `tbcontatoorganizacaoevento`
 --
 
 CREATE TABLE `tbcontatoorganizacaoevento` (
@@ -85,7 +85,7 @@ CREATE TABLE `tbcontatoorganizacaoevento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcontatousuario`
+-- Estrutura da tabela `tbcontatousuario`
 --
 
 CREATE TABLE `tbcontatousuario` (
@@ -99,7 +99,7 @@ CREATE TABLE `tbcontatousuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbevento`
+-- Estrutura da tabela `tbevento`
 --
 
 CREATE TABLE `tbevento` (
@@ -113,29 +113,30 @@ CREATE TABLE `tbevento` (
   `cidadeEvento` varchar(30) DEFAULT NULL,
   `ufEvento` char(2) DEFAULT NULL,
   `dataEvento` date DEFAULT NULL,
+  `dataFimEvento` date DEFAULT NULL,
   `faixaEtariaEvento` varchar(30) NOT NULL,
   `periodoEvento` varchar(30) NOT NULL,
   `valorEvento` varchar(30) NOT NULL,
   `espacoEvento` varchar(30) NOT NULL,
-  `descEvento` varchar(500) NOT NULL,
+  `descEvento` varchar(1000) NOT NULL,
   `idOrganizacaoEvento` int(11) DEFAULT NULL,
   `imagemEvento` varchar(50) NOT NULL,
   `idSituacaoEvento` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbevento`
+-- Extraindo dados da tabela `tbevento`
 --
 
-INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `espacoEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`, `idSituacaoEvento`) VALUES
-(8, 'Anime Friends', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-29', '5', '2', '2', '1', 'Evento para amantes de anime', 8, 'c9be61905092dff69279b128d828e4b8.jpg', 2),
-(9, 'Bela e a Fera', '08160-370', 'Rua Rio do Ouro', '52', '', 'Parque Industrial', 'São Paulo', 'SP', '2024-05-16', '5', '3', '2', '3', 'teatro', 8, 'b63849eabf8a48c824126fa2787b5a95.jpg', 1),
-(10, 'Campus Party ', '08160-370', 'Rua Rio do Ouro', '45', '', 'Parque Industrial', 'São Paulo', 'SP', '2024-05-15', '5', '1', '1', '4', 'evento bacana ', 12, 'a73c9884daa72da3b21e0b5382db276d.jpg', 1);
+INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `dataFimEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `espacoEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`, `idSituacaoEvento`) VALUES
+(8, 'Anime Friends', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-29', NULL, '5', '2', '2', '1', 'Evento para amantes de anime', 8, 'c9be61905092dff69279b128d828e4b8.jpg', 2),
+(9, 'Bela e a Fera', '08160-370', 'Rua Rio do Ouro', '52', '', 'Parque Industrial', 'São Paulo', 'SP', '2024-05-16', NULL, '5', '3', '2', '3', 'teatro', 8, 'b63849eabf8a48c824126fa2787b5a95.jpg', 1),
+(10, 'Campus Party ', '08160-370', 'Rua Rio do Ouro', '45', '', 'Parque Industrial', 'São Paulo', 'SP', '2024-05-15', NULL, '5', '4', '1', '4', 'evento bacana ', 12, 'a73c9884daa72da3b21e0b5382db276d.jpg', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbfeedbackapp`
+-- Estrutura da tabela `tbfeedbackapp`
 --
 
 CREATE TABLE `tbfeedbackapp` (
@@ -148,7 +149,7 @@ CREATE TABLE `tbfeedbackapp` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbinteresseevento`
+-- Estrutura da tabela `tbinteresseevento`
 --
 
 CREATE TABLE `tbinteresseevento` (
@@ -158,19 +159,19 @@ CREATE TABLE `tbinteresseevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbinteresseevento`
+-- Extraindo dados da tabela `tbinteresseevento`
 --
 
 INSERT INTO `tbinteresseevento` (`idInteresseEvento`, `idUsuario`, `idEvento`) VALUES
 (7, 6, 9),
 (8, 1, 10),
 (9, 1, 9),
-(10, 7, 9);
+(12, 7, 9);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tborganizacaoevento`
+-- Estrutura da tabela `tborganizacaoevento`
 --
 
 CREATE TABLE `tborganizacaoevento` (
@@ -194,7 +195,7 @@ CREATE TABLE `tborganizacaoevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tborganizacaoevento`
+-- Extraindo dados da tabela `tborganizacaoevento`
 --
 
 INSERT INTO `tborganizacaoevento` (`idOrganizacaoEvento`, `nomeOrganizacaoEvento`, `cnpjOrganizacaoEvento`, `cepOrganizacaoEvento`, `enderecoOrganizacaoEvento`, `numeroOrganizacaoEvento`, `complementoOrganizacaoEvento`, `bairroOrganizacaoEvento`, `cidadeOrganizacaoEvento`, `ufOrganizacaoEvento`, `telOrganizacaoEvento`, `emailOrganizacaoEvento`, `senhaOrganizacaoEvento`, `linkSiteOrganizacaoEvento`, `imagemOrganizacaoEvento`, `descOrganizacaoEvento`, `idSituacaoOrganizacaoEvento`) VALUES
@@ -209,7 +210,7 @@ INSERT INTO `tborganizacaoevento` (`idOrganizacaoEvento`, `nomeOrganizacaoEvento
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbpublicacao`
+-- Estrutura da tabela `tbpublicacao`
 --
 
 CREATE TABLE `tbpublicacao` (
@@ -222,7 +223,7 @@ CREATE TABLE `tbpublicacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbpublicacao`
+-- Extraindo dados da tabela `tbpublicacao`
 --
 
 INSERT INTO `tbpublicacao` (`idPublicacao`, `tituloPublicacao`, `descPublicacao`, `LinkOrganizacaoEvento`, `idOrganizacaoEvento`, `idSituacaoPublicacao`) VALUES
@@ -231,7 +232,7 @@ INSERT INTO `tbpublicacao` (`idPublicacao`, `tituloPublicacao`, `descPublicacao`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbsituacaoevento`
+-- Estrutura da tabela `tbsituacaoevento`
 --
 
 CREATE TABLE `tbsituacaoevento` (
@@ -240,7 +241,7 @@ CREATE TABLE `tbsituacaoevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbsituacaoevento`
+-- Extraindo dados da tabela `tbsituacaoevento`
 --
 
 INSERT INTO `tbsituacaoevento` (`idSituacaoEvento`, `situacaoEvento`) VALUES
@@ -250,7 +251,7 @@ INSERT INTO `tbsituacaoevento` (`idSituacaoEvento`, `situacaoEvento`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbsituacaoorganizacaoevento`
+-- Estrutura da tabela `tbsituacaoorganizacaoevento`
 --
 
 CREATE TABLE `tbsituacaoorganizacaoevento` (
@@ -259,7 +260,7 @@ CREATE TABLE `tbsituacaoorganizacaoevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbsituacaoorganizacaoevento`
+-- Extraindo dados da tabela `tbsituacaoorganizacaoevento`
 --
 
 INSERT INTO `tbsituacaoorganizacaoevento` (`idSituacaoOrganizacaoEvento`, `situacaoOrganizacaoEvento`) VALUES
@@ -270,7 +271,7 @@ INSERT INTO `tbsituacaoorganizacaoevento` (`idSituacaoOrganizacaoEvento`, `situa
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbsituacaopublicacao`
+-- Estrutura da tabela `tbsituacaopublicacao`
 --
 
 CREATE TABLE `tbsituacaopublicacao` (
@@ -279,7 +280,7 @@ CREATE TABLE `tbsituacaopublicacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbsituacaopublicacao`
+-- Extraindo dados da tabela `tbsituacaopublicacao`
 --
 
 INSERT INTO `tbsituacaopublicacao` (`idSituacaoPublicacao`, `situacaoPublicacao`) VALUES
@@ -289,7 +290,7 @@ INSERT INTO `tbsituacaopublicacao` (`idSituacaoPublicacao`, `situacaoPublicacao`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtokenadmin`
+-- Estrutura da tabela `tbtokenadmin`
 --
 
 CREATE TABLE `tbtokenadmin` (
@@ -301,7 +302,7 @@ CREATE TABLE `tbtokenadmin` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtokenorganizacaoevento`
+-- Estrutura da tabela `tbtokenorganizacaoevento`
 --
 
 CREATE TABLE `tbtokenorganizacaoevento` (
@@ -313,7 +314,7 @@ CREATE TABLE `tbtokenorganizacaoevento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtokenusuario`
+-- Estrutura da tabela `tbtokenusuario`
 --
 
 CREATE TABLE `tbtokenusuario` (
@@ -325,7 +326,7 @@ CREATE TABLE `tbtokenusuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbusuario`
+-- Estrutura da tabela `tbusuario`
 --
 
 CREATE TABLE `tbusuario` (
@@ -340,7 +341,7 @@ CREATE TABLE `tbusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbusuario`
+-- Extraindo dados da tabela `tbusuario`
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailUsuario`, `senhaUsuario`, `telUsuario`, `imagemPerfilUsuario`, `imagemBannerUsuario`) VALUES
@@ -351,7 +352,7 @@ INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailU
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbusuarioseguindo`
+-- Estrutura da tabela `tbusuarioseguindo`
 --
 
 CREATE TABLE `tbusuarioseguindo` (
@@ -365,7 +366,7 @@ CREATE TABLE `tbusuarioseguindo` (
 --
 
 --
--- Índices de tabela `tbadmin`
+-- Índices para tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
   ADD PRIMARY KEY (`idAdmin`),
@@ -373,19 +374,19 @@ ALTER TABLE `tbadmin`
   ADD UNIQUE KEY `emailAdmin` (`emailAdmin`);
 
 --
--- Índices de tabela `tbcategoriacontatoorganizacaoevento`
+-- Índices para tabela `tbcategoriacontatoorganizacaoevento`
 --
 ALTER TABLE `tbcategoriacontatoorganizacaoevento`
   ADD PRIMARY KEY (`idCategoriaContatoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbcategoriacontatousuario`
+-- Índices para tabela `tbcategoriacontatousuario`
 --
 ALTER TABLE `tbcategoriacontatousuario`
   ADD PRIMARY KEY (`idCategoriaContatoUsuario`);
 
 --
--- Índices de tabela `tbcontatoorganizacaoevento`
+-- Índices para tabela `tbcontatoorganizacaoevento`
 --
 ALTER TABLE `tbcontatoorganizacaoevento`
   ADD PRIMARY KEY (`idContatoOrganizacaoEvento`),
@@ -393,7 +394,7 @@ ALTER TABLE `tbcontatoorganizacaoevento`
   ADD KEY `fk_categoriaContato` (`idCategoriaContatoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbcontatousuario`
+-- Índices para tabela `tbcontatousuario`
 --
 ALTER TABLE `tbcontatousuario`
   ADD PRIMARY KEY (`idContatoUsuario`),
@@ -401,7 +402,7 @@ ALTER TABLE `tbcontatousuario`
   ADD KEY `fk_categoriaContatoUsuario` (`idCategoriaContatoUsuario`);
 
 --
--- Índices de tabela `tbevento`
+-- Índices para tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD PRIMARY KEY (`idEvento`),
@@ -409,14 +410,14 @@ ALTER TABLE `tbevento`
   ADD KEY `fk_situacaoEvento` (`idSituacaoEvento`);
 
 --
--- Índices de tabela `tbfeedbackapp`
+-- Índices para tabela `tbfeedbackapp`
 --
 ALTER TABLE `tbfeedbackapp`
   ADD PRIMARY KEY (`idFeedBackApp`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Índices de tabela `tbinteresseevento`
+-- Índices para tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
   ADD PRIMARY KEY (`idInteresseEvento`),
@@ -424,14 +425,14 @@ ALTER TABLE `tbinteresseevento`
   ADD KEY `idEvento` (`idEvento`);
 
 --
--- Índices de tabela `tborganizacaoevento`
+-- Índices para tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
   ADD PRIMARY KEY (`idOrganizacaoEvento`),
   ADD KEY `fk_tbSituacaoOrganizacaoEvento` (`idSituacaoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbpublicacao`
+-- Índices para tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD PRIMARY KEY (`idPublicacao`),
@@ -439,52 +440,52 @@ ALTER TABLE `tbpublicacao`
   ADD KEY `fk_idSituacaoPub` (`idSituacaoPublicacao`);
 
 --
--- Índices de tabela `tbsituacaoevento`
+-- Índices para tabela `tbsituacaoevento`
 --
 ALTER TABLE `tbsituacaoevento`
   ADD PRIMARY KEY (`idSituacaoEvento`);
 
 --
--- Índices de tabela `tbsituacaoorganizacaoevento`
+-- Índices para tabela `tbsituacaoorganizacaoevento`
 --
 ALTER TABLE `tbsituacaoorganizacaoevento`
   ADD PRIMARY KEY (`idSituacaoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbsituacaopublicacao`
+-- Índices para tabela `tbsituacaopublicacao`
 --
 ALTER TABLE `tbsituacaopublicacao`
   ADD PRIMARY KEY (`idSituacaoPublicacao`);
 
 --
--- Índices de tabela `tbtokenadmin`
+-- Índices para tabela `tbtokenadmin`
 --
 ALTER TABLE `tbtokenadmin`
   ADD PRIMARY KEY (`idTokenAdmin`),
   ADD KEY `idAdmin` (`idAdmin`);
 
 --
--- Índices de tabela `tbtokenorganizacaoevento`
+-- Índices para tabela `tbtokenorganizacaoevento`
 --
 ALTER TABLE `tbtokenorganizacaoevento`
   ADD PRIMARY KEY (`idTokenOrganizacaoEvento`),
   ADD KEY `idOrganizacaoEvento` (`idOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbtokenusuario`
+-- Índices para tabela `tbtokenusuario`
 --
 ALTER TABLE `tbtokenusuario`
   ADD PRIMARY KEY (`idTokenUsuario`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Índices de tabela `tbusuario`
+-- Índices para tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- Índices de tabela `tbusuarioseguindo`
+-- Índices para tabela `tbusuarioseguindo`
 --
 ALTER TABLE `tbusuarioseguindo`
   ADD PRIMARY KEY (`idSeguindo`),
@@ -492,7 +493,7 @@ ALTER TABLE `tbusuarioseguindo`
   ADD KEY `idOrganizacaoEvento` (`idOrganizacaoEvento`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -541,7 +542,7 @@ ALTER TABLE `tbfeedbackapp`
 -- AUTO_INCREMENT de tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
-  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tborganizacaoevento`
@@ -604,51 +605,51 @@ ALTER TABLE `tbusuarioseguindo`
   MODIFY `idSeguindo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `tbcontatoorganizacaoevento`
+-- Limitadores para a tabela `tbcontatoorganizacaoevento`
 --
 ALTER TABLE `tbcontatoorganizacaoevento`
   ADD CONSTRAINT `fk_categoriaContato` FOREIGN KEY (`idCategoriaContatoOrganizacaoEvento`) REFERENCES `tbcategoriacontatoorganizacaoevento` (`idCategoriaContatoOrganizacaoEvento`),
   ADD CONSTRAINT `tbcontatoorganizacaoevento_ibfk_1` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`);
 
 --
--- Restrições para tabelas `tbcontatousuario`
+-- Limitadores para a tabela `tbcontatousuario`
 --
 ALTER TABLE `tbcontatousuario`
   ADD CONSTRAINT `fk_categoriaContatoUsuario` FOREIGN KEY (`idCategoriaContatoUsuario`) REFERENCES `tbcategoriacontatousuario` (`idCategoriaContatoUsuario`),
   ADD CONSTRAINT `tbcontatousuario_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Restrições para tabelas `tbevento`
+-- Limitadores para a tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD CONSTRAINT `fk_situacaoEvento` FOREIGN KEY (`idSituacaoEvento`) REFERENCES `tbsituacaoevento` (`idSituacaoEvento`),
   ADD CONSTRAINT `tbevento_ibfk_1` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`);
 
 --
--- Restrições para tabelas `tbfeedbackapp`
+-- Limitadores para a tabela `tbfeedbackapp`
 --
 ALTER TABLE `tbfeedbackapp`
   ADD CONSTRAINT `tbfeedbackapp_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Restrições para tabelas `tbinteresseevento`
+-- Limitadores para a tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
   ADD CONSTRAINT `tbinteresseevento_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
   ADD CONSTRAINT `tbinteresseevento_ibfk_2` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
 
 --
--- Restrições para tabelas `tborganizacaoevento`
+-- Limitadores para a tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
   ADD CONSTRAINT `fk_tbSituacaoOrganizacaoEvento` FOREIGN KEY (`idSituacaoOrganizacaoEvento`) REFERENCES `tbsituacaoorganizacaoevento` (`idSituacaoOrganizacaoEvento`);
 
 --
--- Restrições para tabelas `tbpublicacao`
+-- Limitadores para a tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD CONSTRAINT `fk_OrganizacaoEvento_tbPub` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`),
