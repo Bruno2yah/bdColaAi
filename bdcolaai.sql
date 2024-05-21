@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Maio-2024 às 19:07
+-- Tempo de geração: 21-Maio-2024 às 22:42
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
 
@@ -43,8 +43,7 @@ CREATE TABLE `tbadmin` (
 --
 
 INSERT INTO `tbadmin` (`idAdmin`, `nomeAdmin`, `sobrenomeAdmin`, `cpfAdmin`, `dataNascAdmin`, `emailAdmin`, `senhaAdmin`, `fotoPerfilAdmin`) VALUES
-(2, 'Bruno', 'Geanini', '574.489.768-22', '2004-05-25', 'Bruno@gmail.com', '1234', '2ae6b30e3edbeb47c6af0c4d97103cad.jpg'),
-(3, 'Stephanie', 'silva', '444.444.444-44', '1999-01-29', 'admin@teste.com', '1234', 'e310347bb0e038aa3366f86519b386ae.jpg');
+(3, 'Admin', 'Teste', '111.111.111-11', '1111-01-01', 'admin@teste.com', '1234', 'e310347bb0e038aa3366f86519b386ae.jpg');
 
 -- --------------------------------------------------------
 
@@ -129,9 +128,19 @@ CREATE TABLE `tbevento` (
 --
 
 INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `dataFimEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `espacoEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`, `idSituacaoEvento`) VALUES
-(8, 'Anime Friends', '08537-330', 'Rua Ariovaldo Honório de Andrade', '21', '', 'Jardim Rosana', 'Ferraz de Vasconcelos', 'SP', '2024-05-29', NULL, '5', '2', '2', '1', 'Evento para amantes de anime', 8, 'c9be61905092dff69279b128d828e4b8.jpg', 2),
-(9, 'Bela e a Fera', '08160-370', 'Rua Rio do Ouro', '52', '', 'Parque Industrial', 'São Paulo', 'SP', '2024-05-16', NULL, '5', '3', '2', '3', 'teatro', 8, 'b63849eabf8a48c824126fa2787b5a95.jpg', 1),
-(10, 'Campus Party ', '08160-370', 'Rua Rio do Ouro', '45', '', 'Parque Industrial', 'São Paulo', 'SP', '2024-05-15', NULL, '5', '4', '1', '4', 'evento bacana ', 12, 'a73c9884daa72da3b21e0b5382db276d.jpg', 1);
+(11, 'Peter Pan - Crescer é Preciso', '05402-600', 'Avenida Rebouças', '3970', '', 'Pinheiros', 'São Paulo', 'SP', '2024-05-18', NULL, '5', '2', '2', '3', '\"Peter Pan - Crescer é preciso\" é uma adaptação teatral inovadora que mergulha na jornada emocional de Peter e seus amigos, não apenas ao enfrentarem a transição para a vida adulta, mas também ao se depararem com a responsabilidade de cuidar do planeta e do futuro. Enquanto lidam com seus dilemas pessoais, os personagens confrontam a resistência de Peter em crescer, mas também se deparam com a urgência de preservar a Terra do Nunca, representando um reflexo do nosso próprio mundo, através dos sonhos e da imaginação. Assim, além de explorar a beleza e as dificuldades do crescimento pessoal, \"Peter Pan - Crescer é preciso\" também aborda a mensagem vital de cuidar do meio ambiente, a relação entre pais e filhos e o poder do perdão, inspirando ações ecológicas e responsáveis para as gerações futuras.', 14, '984965fd531c7a5b3b12c722f7a65256.jpg', 1),
+(12, 'FANTASY - Uma Viagem Musical', '01413-100', 'Rua Augusta', '2823', '', 'Cerqueira César', 'São Paulo', 'SP', '2024-05-18', '2024-06-02', '5', '2', '2', '3', 'A super produção Fantasy convida você para uma experiência mágica e emocionante, repleta de aventura, música e muita diversão! Prepare-se para embarcar em uma jornada inesquecível, onde os contos de fadas ganham vida de forma surpreendente. Com uma duração total de 1 hora e 35 minutos, incluindo um intervalo de 15 minutos para você recarregar as energias, Fantasy promete encantar o público com suas 12 trocas de cenário, 50 deslumbrantes figurinos e 30 impressionantes efeitos especiais. Ao longo do espetáculo, você será transportado para um mundo mágico com 15 músicas emocionantes preenchendo o ar, efeitos de neve caindo no palco através dos poderes da incrível rainha da neve, gelo seco em diversos números, lasers, vôos aéreos em cena, ilusionismo e muito mais, criando uma atmosfera de pura fantasia.Fantasy traz ao palco: 18 personagens icônicos dos contos de fadas, como Aladdin, Gênio, Pinocchio, Cinderela, Rapunzel, Bela e a Fera, Ariel, Bela Adormecida, Malévola, Jafar, Rainha Má.', 15, '8e0949c3d452b927c1f4157aad229023.jpg', 1),
+(13, 'As Três Porquinhas - E a Força da Imaginação', '01238-000', 'Avenida Higienópolis', '618', '', 'Higienópolis', 'São Paulo', 'SP', '2024-05-18', '2024-09-01', '5', '2', '2', '3', 'O espetáculo \"As Três Porquinhas - E a Força da Imaginação\" convida para uma viagem por um mundo encantado onde vivem três adoráveis porquinhas: Pepita, Pétala e Pérola. Com personalidades diferentes, elas se veem diante da grande missão de construir suas casinhas para se protegerem do Lobo Mau. Ao enfrentar os desafios e perigos que surgem pelo caminho, Pepita, Pétala e Pérola levam o público por aventuras inesquecíveis, onde a criatividade, a coragem e a solidariedade viram aliadas na superação dos obstáculos, fortalecendo a amizade e revelando a importância de acreditar em si mesmas. A história, repleta de música, dança e emoção, celebra a magia da infância, a força dos laços familiares e a capacidade transformadora da imaginação.', 16, '428393dc06c281118fa5eaef64102ed0.jpg', 1),
+(14, 'A Bela e a Fera - O musical', '01329-000', 'Rua dos Ingleses', '209', '', 'Morro dos Ingleses', 'São Paulo', 'SP', '2024-05-18', '2024-08-25', '5', '2', '2', '3', 'Um musical cantado totalmente ao vivo, com cenários e figurinos deslumbrantes, conta a história de Bela, uma moradora de uma pequena aldeia francesa. Bela tem o pai capturado pela Fera e decide entregar sua vida ao estranho ser em troca da liberdade do seu pai. No castelo, ela conhece objetos mágicos e descobre que a Fera é na verdade um príncipe que precisa de amor para voltar à forma humana.', 17, '5b4b411224bd80acf6573fde8bab49aa.jpg', 1),
+(15, 'Pinóquio', '03126-000', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '2024-05-01', '2024-05-30', '5', '2', '2', '3', 'Pinóquio é um boneco de madeira que sonha em ser um menino de verdade. Para isso ele conta com a ajuda de um grilo falante que desempenha a nobre função de consciência para ajuda-lo a filtrar as tentações do mundo.', 18, '510a98d6efa083d129e7eb31fdaecc0b.jpg', 1),
+(16, 'O Mágico de Oz ', '03126-000', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '2024-05-01', '2024-05-30', 'Selecione a faixa etária', 'Selecione o turno', 'Selecione o valor', 'Selecione o valor', 'Doroty e seu cachorro Totó são levados para a Terra mágica de Oz quando um ciclone passa pela fazenda de seus avós em Kansas. Enquanto procura o caminho de volta para casa, acaba conhecendo grandes amigos, como o Espantalho, Homem de Lata e o Leão. E descobre que está num mundo de sonhos que viram realidade, de florestas encantadas e canções maravilhosas.', 18, 'd67630393e20403285a3f45681337804.jpg', 1),
+(17, 'Teatro Para Bebês: Descobertas', '03126-000', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '2024-05-18', '2024-06-29', '5', '2', '2', '3', 'Três Crianças acordam em um acampamento, e juntas, começam a explorar objetos, sons, cores, natureza e tudo o que encontram ao redor. Que som tem a água? Quantos dedos temos nas mãos? Quais as letras do alfabeto? Quais as cores do arco-íris? Esse é o cheiro da terra molhada? Interagindo com os diversos estímulos sensoriais que encontram pelo caminho, e explorando o mundo sob a percepção da criança em que tudo é novo, os três amigos superam os desafios do aprendizado. Espetáculo sensorial para a família inteira. Há interação total com o público! Algumas pessoas serão convidadas a subir no palco e participar do espetáculo. A plateia também tem uma participação especial com orientação e auxílio dos atores. Indicado para crianças 0 a 6 anos e totalmente adaptado para crianças com necessidades especiais.', 18, '4a811897b6c205de28ca6adc6f0c7205.jpg', 1),
+(18, 'Moana e Maui, O Musical', '03126-000', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '2024-05-18', '2024-06-23', '5', '2', '2', '3', 'Moana é uma corajosa jovem, filha única do chefe de uma tribo na Oceania, vinda de uma longa linhagem de navegadores. Quando os pescadores de sua ilha não conseguem pescar nenhum peixe e as colheitas falham, ela descobre que o semideus Maui causou a praga ao roubar o coração da deusa Te Fiti. Entusiasta das viagens marítimas, a jovem se vê querendo descobrir mais sobre seu passado e ajudar a comunidade, mesmo que a família queira proteger Moana a qualquer custo. Então, ela resolve partir em busca de seus ancestrais, habitantes de uma ilha mítica que ninguém sabe onde é. A única maneira de curar a ilha é persuadir Maui a devolver o coração de Te Fiti, então Moana parte em uma jornada épica pelo Pacífico. Moana começa sua jornada em mar aberto, onde enfrenta terríveis criaturas marinhas e descobre histórias do submundo.', 18, '9d8ce220b490e77803e7f92a73a926f4.jpg', 1),
+(19, 'Rapha e Mandy Em As Melhores Férias Do Mundo', '03126-000', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '2024-07-07', '2024-07-28', '5', '2', '2', '3', 'Rapha e Mandy são dois amigos cheios de energia e imaginação. Durante as férias escolares, todos os seus amigos foram viajar. Rapha e Mandy então decidem explorar o quintal de casa em busca de aventura e diversão. Eles adoram brincar de ser youtubers nas horas vagas, e usam a imaginação para criar vídeos divertidos. Ao longo de suas jornadas, Rapha e Mandy vivem grandes aventuras, encontram personagens e enfrentam perigos inesperados. Eles precisam usar toda a sua coragem e inteligência, superar seus medos para vencer obstáculos e desvendar mistérios. \"As Melhores Férias do Mundo\" é uma história emocionante que mostra a importância de explorar a imaginação, da amizade e criar memórias inesquecíveis. Prepare-se para embarcar nessa incrível jornada cheia de diversão e descobertas.', 18, 'cfc213aecb8f812f7b8b8aefbec99f89.jpg', 1),
+(20, 'Futebol de Brinquedo', '01234-010', 'Praça Charles Miller', 's/n', '', 'Pacaembu', 'São Paulo', 'SP', '2023-10-12', '2024-05-31', '5', '4', '1', '2', 'Alguns dos brinquedos da mostra são raros e há itens com mais de 60 anos. Há também muitos itens inusitados, como figuras da Betty Boop, Smurfete, Mickey Mouse, Snoopy e Fofolete vestidos com a camisa da Seleção Brasileira. Os brinquedos mais recentes também foram incluídos na exposição, como vários minicraques – incluindo a recém-lançada jogadora Debinha – e os bonecos Funko. O público também vai poder ver uma mini-Barbie jogadora de futebol e uma Barbie treinadora, além de uma coleção de mascotes das Copas em pelúcia, desde o cachorrinho Striker (Copa masculina de 1994, nos Estados Unidos) à mais nova da turma, Tazuni (Copa de mulheres de 2023, na Austrália e Nova Zelândia).  ', 20, 'cca97cfb1044db29c08c642b47b0cd2b.jpg', 1),
+(21, 'Contação de Histórias – Narrativas Sensoriais com Ver com Palavras', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-06-25', '2024-06-26', '5', '2', '1', '4', 'Narrativas Sensoriais’ é uma programação que tem como objetivo buscar inclusão nas Contações de Histórias através dos sentidos. Neste encontro, convidamos o público presente a explorar um mundo de narrativas através da Língua Brasileira de Sinais (LIBRAS) e da magia das palavras adaptadas para pessoas cegas. Neste projeto, a comunicação transcende as barreiras físicas e se torna uma dança de gestos e sensações. Nossos contadores de histórias especializados conduzem o público por aventuras emocionantes. Seja um espectador surdo, cego, ou simplesmente alguém em busca de novas vivências inclusivas. ‘Narrativas Sensoriais’ busca trazer uma jornada de conexão, acessibilidade na leitura e entendimento.', 21, '2b1f2999a0f7ea0c354d4e087a290add.jpg', 1),
+(22, 'Mundo Jardim: Conto de Todos os Cantos', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-05-19', '2024-12-08', '5', '1', '1', '4', 'Bem-vindos ao “Mundo Jardim: Conto de Todos os Cantos”, uma experiência encantadora que floresce a imaginação e nutre o amor pela leitura! Neste evento envolvente, os participantes são convidados a explorar um universo de histórias e descobertas, guiados por mediadores apaixonados por contos. Em meio a um jardim literário, onde as pétalas são feitas de páginas e os rios são feitos de histórias, mergulhe em aventuras que revelam mundos desconhecidos e culturas fascinantes. Celebre a magia da leitura, onde os livros são sementes que germinam saberes e ideias, cultivando empatia e imaginação para leitores de todas as idades.', 21, 'e88d72f56bf4e8ee30e1fde2b6489a4e.jpg', 1),
+(23, 'Hoje O Escuro Vai Atrasar Para Que Possamos Conversar', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-05-28', '2024-05-29', '5', '2', '1', '4', 'Hoje o escuro vai atrasar para que possamos conversar se passa em um triste vilarejo onde não vivem mais animais, nem domésticos e nem silvestres. Algo muito estranho aconteceu no passado que provocou a fuga dos bichinhos e os transformou em seres quase mitológicos, lembrados apenas nas aulas da professora Rafaela. \r\nNesse lugar misterioso, vivem os colegas Santi, Clara e Luna, que, depois de sofrer bullying de seus colegas também desapareceu. Desconfiados de que Luna teria sido raptada pelo Espírito do “não-sei-o-quê” do bosque, Santi e Clara partem floresta a dentro em busca da amiga. \r\nA encenação apresenta ao público delicados temas discutidos pela obra de Amós Oz, como os efeitos da discriminação e do tratamento indesejado, como o bullying isola as pessoas e a consciência de que o “outro” também tem medos, fragilidades e inseguranças. A ideia é fazer com que as crianças entendam a alteridade como uma extensão do eu, desconstruir o processo vicioso de desqualificação de um indivídu', 21, '7cc93252cead52beb64e857f6b011580.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -157,16 +166,6 @@ CREATE TABLE `tbinteresseevento` (
   `idUsuario` int(11) DEFAULT NULL,
   `idEvento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tbinteresseevento`
---
-
-INSERT INTO `tbinteresseevento` (`idInteresseEvento`, `idUsuario`, `idEvento`) VALUES
-(7, 6, 9),
-(8, 1, 10),
-(9, 1, 9),
-(12, 7, 9);
 
 -- --------------------------------------------------------
 
@@ -199,13 +198,14 @@ CREATE TABLE `tborganizacaoevento` (
 --
 
 INSERT INTO `tborganizacaoevento` (`idOrganizacaoEvento`, `nomeOrganizacaoEvento`, `cnpjOrganizacaoEvento`, `cepOrganizacaoEvento`, `enderecoOrganizacaoEvento`, `numeroOrganizacaoEvento`, `complementoOrganizacaoEvento`, `bairroOrganizacaoEvento`, `cidadeOrganizacaoEvento`, `ufOrganizacaoEvento`, `telOrganizacaoEvento`, `emailOrganizacaoEvento`, `senhaOrganizacaoEvento`, `linkSiteOrganizacaoEvento`, `imagemOrganizacaoEvento`, `descOrganizacaoEvento`, `idSituacaoOrganizacaoEvento`) VALUES
-(7, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '00000', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(11)11111-1111', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2),
-(8, 'Anime Friends', '111111111111111111', '08537330', 'Rua Francisco de paula', '1234', 'aaaa', 'Jardim bandeirantes', 'Ferraz', 'SP', '1111111111111', 'AnimeFriends@gmail.com', '1234', NULL, NULL, NULL, 2),
-(9, 'Futebol', '111111111111111111', '08537330', 'Rua Francisco de paula', '1234', 'aaaa', 'Jardim bandeirantes', 'São Paulo', 'SP', '1111111111111', 'AnimeFriendsaaa@gmail.com', '1234', NULL, NULL, NULL, 3),
-(10, 'Museu', '00.000.000/0000-00', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'bruno@gmail.com', '1234', NULL, NULL, NULL, 2),
-(11, 'Ipiranga', '11.111.111/1111-11', '00000-00', 'Rua A', '2101', 'logo a', 'Jardim rosana', 'Ferraz de Vasconcelos', 'SP', '(00)00000-0000', 'FelipeGeanini12@gmail.com', '1234', NULL, NULL, NULL, 2),
-(12, 'Fabrica de Cultura Itaquera', '55.555.555/5555-55', '01001-00', 'Praça da Sé', '281', 'lado í', 'Sé', 'São Paulo', 'SP', '(11)99999-9999', 'fabrica@teste.com', '1234', NULL, NULL, NULL, 2),
-(13, 'CEU Inácio Monteiro', '44.444.444/4444-44', '08160-37', 'Rua Rio do Ouro', '281', '', 'Parque Industrial', 'São Paulo', 'SP', '(11)77777-7777', 'ceu@teste.com', 'asdsdasda!', NULL, NULL, NULL, 1);
+(14, 'Teatro das Artes', '08.505.736/0003-95', '05402-60', 'Avenida Rebouças', '3970', '', 'Pinheiros', 'São Paulo', 'SP', '(11)30340-075', 'teatro@artes.com', 'Senha12345$', NULL, NULL, NULL, 2),
+(15, 'Teatro Procópio Ferreira', '01.148.183/0001-50', '01413-10', 'Rua Augusta', '2823', '', 'Cerqueira César', 'São Paulo', 'SP', '(11)30834-475', 'teatroprocopio@ferreira.com', 'Senha12345$', NULL, NULL, NULL, 2),
+(16, 'Teatro oul', '59.596.908/0001-52', '01238-00', 'Avenida Higienópolis', '618', '', 'Higienópolis', 'São Paulo', 'SP', '(11)38232-323', 'teatro@oul.com', 'Senha12345$', NULL, NULL, NULL, 2),
+(17, 'Teatro Ruth Escobar', '28.624.310/0001-04', '01329-00', 'Rua dos Ingleses', '209', '', 'Morro dos Ingleses', 'São Paulo', 'SP', '(11)32892-358', 'teatroruth@escobar.com', 'Senha12345$', NULL, NULL, NULL, 2),
+(18, 'Teatro Mooca', '16.515.454/0001-35', '03126-00', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '(99)88500-22', 'teatro@mooca.com', 'Senha12345$', NULL, NULL, NULL, 2),
+(19, 'Parque Ecológico do Tiête', '06.231.760/0001-96', '03719-00', 'Via Parque', '8055', '', 'Vila Santo Henrique', 'São Paulo', 'SP', '(11)28232-250', 'parque@ecologicotiete.com', 'Senha12345$', NULL, NULL, NULL, 3),
+(20, 'Prefeitura de São Paulo', '63.002.141/0001-63', '01002-02', 'Viaduto do Chá', '15', '', 'Centro', 'São Paulo', 'SP', '(00)00000-0000', 'prefeitura@sp.com', 'Senha12345$', NULL, NULL, NULL, 2),
+(21, 'Centro Cultural São Paulo', '49.269.244/0006-78', '01504-00', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '(11)33974-002', 'centrocultural@sp.com', 'Senha12345$', NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -221,13 +221,6 @@ CREATE TABLE `tbpublicacao` (
   `idOrganizacaoEvento` int(11) DEFAULT NULL,
   `idSituacaoPublicacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `tbpublicacao`
---
-
-INSERT INTO `tbpublicacao` (`idPublicacao`, `tituloPublicacao`, `descPublicacao`, `LinkOrganizacaoEvento`, `idOrganizacaoEvento`, `idSituacaoPublicacao`) VALUES
-(1, 'Hoje a tarde', 'Neymar vai estar na praça', NULL, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -345,9 +338,7 @@ CREATE TABLE `tbusuario` (
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailUsuario`, `senhaUsuario`, `telUsuario`, `imagemPerfilUsuario`, `imagemBannerUsuario`) VALUES
-(1, 'Bruno', 'Geanini', 'Bruno@gmail.com', '1234', '', '62fc43ff16f6a96c586773abefdfb542.jpg', ''),
-(6, 'stephanie', 'Silva ', 'ste@teste.com', 'senha1234', '(11)95283-0532', NULL, NULL),
-(7, 'Richard', 'Silva ', 'oi@teste.com', '1234', '(11)77777-7777', 'e948d34aa5220121b6cce26dd23858c8.jpg', '27dec93c909e14c0e868924ea98b101b.jpg');
+(7, 'Usuário', 'Teste', 'usuario@teste.com', '1234', '(11)77777-7777', 'e948d34aa5220121b6cce26dd23858c8.jpg', '27dec93c909e14c0e868924ea98b101b.jpg');
 
 -- --------------------------------------------------------
 
@@ -530,7 +521,7 @@ ALTER TABLE `tbcontatousuario`
 -- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `tbfeedbackapp`
@@ -542,13 +533,13 @@ ALTER TABLE `tbfeedbackapp`
 -- AUTO_INCREMENT de tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
-  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
-  MODIFY `idOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `tbpublicacao`
