@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/05/2024 às 07:27
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 19-Jun-2024 às 21:03
+-- Versão do servidor: 10.4.28-MariaDB
+-- versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbadmin`
+-- Estrutura da tabela `tbadmin`
 --
 
 CREATE TABLE `tbadmin` (
@@ -39,16 +39,16 @@ CREATE TABLE `tbadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbadmin`
+-- Extraindo dados da tabela `tbadmin`
 --
 
 INSERT INTO `tbadmin` (`idAdmin`, `nomeAdmin`, `sobrenomeAdmin`, `cpfAdmin`, `dataNascAdmin`, `emailAdmin`, `senhaAdmin`, `fotoPerfilAdmin`) VALUES
-(3, 'Admin', 'Teste', '111.111.111-11', '1111-01-01', 'admin@teste.com', '1234', 'e310347bb0e038aa3366f86519b386ae.jpg');
+(3, 'Admin', 'Teste', '111.111.111-11', '2004-06-02', 'admin@gmail.com', 'Senha12345$', 'e310347bb0e038aa3366f86519b386ae.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcategoriacontatoorganizacaoevento`
+-- Estrutura da tabela `tbcategoriacontatoorganizacaoevento`
 --
 
 CREATE TABLE `tbcategoriacontatoorganizacaoevento` (
@@ -56,20 +56,10 @@ CREATE TABLE `tbcategoriacontatoorganizacaoevento` (
   `categoriaContatoOrganizacaoEvento` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `tbcategoriacontatoorganizacaoevento`
---
-
-INSERT INTO `tbcategoriacontatoorganizacaoevento` (`idCategoriaContatoOrganizacaoEvento`, `categoriaContatoOrganizacaoEvento`) VALUES
-(1, 'Feedback'),
-(2, 'Suporte'),
-(3, 'Denuncia'),
-(4, 'Outros');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcategoriacontatousuario`
+-- Estrutura da tabela `tbcategoriacontatousuario`
 --
 
 CREATE TABLE `tbcategoriacontatousuario` (
@@ -77,20 +67,10 @@ CREATE TABLE `tbcategoriacontatousuario` (
   `categoriaContatoUsuario` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `tbcategoriacontatousuario`
---
-
-INSERT INTO `tbcategoriacontatousuario` (`idCategoriaContatoUsuario`, `categoriaContatoUsuario`) VALUES
-(1, 'Feedback'),
-(2, 'Suporte'),
-(3, 'Denúncia'),
-(4, 'Outros');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcontatoorganizacaoevento`
+-- Estrutura da tabela `tbcontatoorganizacaoevento`
 --
 
 CREATE TABLE `tbcontatoorganizacaoevento` (
@@ -104,7 +84,7 @@ CREATE TABLE `tbcontatoorganizacaoevento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbcontatousuario`
+-- Estrutura da tabela `tbcontatousuario`
 --
 
 CREATE TABLE `tbcontatousuario` (
@@ -118,7 +98,7 @@ CREATE TABLE `tbcontatousuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbevento`
+-- Estrutura da tabela `tbevento`
 --
 
 CREATE TABLE `tbevento` (
@@ -144,7 +124,7 @@ CREATE TABLE `tbevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbevento`
+-- Extraindo dados da tabela `tbevento`
 --
 
 INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`, `numeroEvento`, `complementoEvento`, `bairroEvento`, `cidadeEvento`, `ufEvento`, `dataEvento`, `dataFimEvento`, `faixaEtariaEvento`, `periodoEvento`, `valorEvento`, `espacoEvento`, `descEvento`, `idOrganizacaoEvento`, `imagemEvento`, `idSituacaoEvento`) VALUES
@@ -160,12 +140,19 @@ INSERT INTO `tbevento` (`idEvento`, `nomeEvento`, `cepEvento`, `enderecoEvento`,
 (20, 'Futebol de Brinquedo', '01234-010', 'Praça Charles Miller', 's/n', '', 'Pacaembu', 'São Paulo', 'SP', '2023-10-12', '2024-05-31', '5', '4', '1', '2', 'Alguns dos brinquedos da mostra são raros e há itens com mais de 60 anos. Há também muitos itens inusitados, como figuras da Betty Boop, Smurfete, Mickey Mouse, Snoopy e Fofolete vestidos com a camisa da Seleção Brasileira. Os brinquedos mais recentes também foram incluídos na exposição, como vários minicraques – incluindo a recém-lançada jogadora Debinha – e os bonecos Funko. O público também vai poder ver uma mini-Barbie jogadora de futebol e uma Barbie treinadora, além de uma coleção de mascotes das Copas em pelúcia, desde o cachorrinho Striker (Copa masculina de 1994, nos Estados Unidos) à mais nova da turma, Tazuni (Copa de mulheres de 2023, na Austrália e Nova Zelândia).  ', 20, 'cca97cfb1044db29c08c642b47b0cd2b.jpg', 1),
 (21, 'Contação de Histórias – Narrativas Sensoriais com Ver com Palavras', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-06-25', '2024-06-26', '5', '2', '1', '4', 'Narrativas Sensoriais’ é uma programação que tem como objetivo buscar inclusão nas Contações de Histórias através dos sentidos. Neste encontro, convidamos o público presente a explorar um mundo de narrativas através da Língua Brasileira de Sinais (LIBRAS) e da magia das palavras adaptadas para pessoas cegas. Neste projeto, a comunicação transcende as barreiras físicas e se torna uma dança de gestos e sensações. Nossos contadores de histórias especializados conduzem o público por aventuras emocionantes. Seja um espectador surdo, cego, ou simplesmente alguém em busca de novas vivências inclusivas. ‘Narrativas Sensoriais’ busca trazer uma jornada de conexão, acessibilidade na leitura e entendimento.', 21, '2b1f2999a0f7ea0c354d4e087a290add.jpg', 1),
 (22, 'Mundo Jardim: Conto de Todos os Cantos', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-05-19', '2024-12-08', '5', '1', '1', '4', 'Bem-vindos ao “Mundo Jardim: Conto de Todos os Cantos”, uma experiência encantadora que floresce a imaginação e nutre o amor pela leitura! Neste evento envolvente, os participantes são convidados a explorar um universo de histórias e descobertas, guiados por mediadores apaixonados por contos. Em meio a um jardim literário, onde as pétalas são feitas de páginas e os rios são feitos de histórias, mergulhe em aventuras que revelam mundos desconhecidos e culturas fascinantes. Celebre a magia da leitura, onde os livros são sementes que germinam saberes e ideias, cultivando empatia e imaginação para leitores de todas as idades.', 21, 'e88d72f56bf4e8ee30e1fde2b6489a4e.jpg', 1),
-(23, 'Hoje O Escuro Vai Atrasar Para Que Possamos Conversar', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-05-28', '2024-05-29', '5', '2', '1', '4', 'Hoje o escuro vai atrasar para que possamos conversar se passa em um triste vilarejo onde não vivem mais animais, nem domésticos e nem silvestres. Algo muito estranho aconteceu no passado que provocou a fuga dos bichinhos e os transformou em seres quase mitológicos, lembrados apenas nas aulas da professora Rafaela. \r\nNesse lugar misterioso, vivem os colegas Santi, Clara e Luna, que, depois de sofrer bullying de seus colegas também desapareceu. Desconfiados de que Luna teria sido raptada pelo Espírito do “não-sei-o-quê” do bosque, Santi e Clara partem floresta a dentro em busca da amiga. \r\nA encenação apresenta ao público delicados temas discutidos pela obra de Amós Oz, como os efeitos da discriminação e do tratamento indesejado, como o bullying isola as pessoas e a consciência de que o “outro” também tem medos, fragilidades e inseguranças. A ideia é fazer com que as crianças entendam a alteridade como uma extensão do eu, desconstruir o processo vicioso de desqualificação de um indivídu', 21, '7cc93252cead52beb64e857f6b011580.jpg', 1);
+(23, 'Hoje O Escuro Vai Atrasar Para Que Possamos Conversar', '01504-000', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '2024-05-28', '2024-05-29', '5', '2', '1', '4', 'Hoje o escuro vai atrasar para que possamos conversar se passa em um triste vilarejo onde não vivem mais animais, nem domésticos e nem silvestres. Algo muito estranho aconteceu no passado que provocou a fuga dos bichinhos e os transformou em seres quase mitológicos, lembrados apenas nas aulas da professora Rafaela. \r\nNesse lugar misterioso, vivem os colegas Santi, Clara e Luna, que, depois de sofrer bullying de seus colegas também desapareceu. Desconfiados de que Luna teria sido raptada pelo Espírito do “não-sei-o-quê” do bosque, Santi e Clara partem floresta a dentro em busca da amiga. \r\nA encenação apresenta ao público delicados temas discutidos pela obra de Amós Oz, como os efeitos da discriminação e do tratamento indesejado, como o bullying isola as pessoas e a consciência de que o “outro” também tem medos, fragilidades e inseguranças. A ideia é fazer com que as crianças entendam a alteridade como uma extensão do eu, desconstruir o processo vicioso de desqualificação de um indivídu', 21, '7cc93252cead52beb64e857f6b011580.jpg', 1),
+(25, 'Olimpíadas no Parque', '03719-000', 'Via Parque', '8055', '', 'Vila Santo Henrique', 'São Paulo', 'SP', '2024-06-01', '2024-06-29', '4', '2', '1', '1', 'Uma competição amigável com várias atividades esportivas adaptadas para o ambiente do parque, como corrida de saco, cabo de guerra, corrida de obstáculos simples e lançamento de frisbee. As crianças podem competir individualmente ou em equipes.', 20, '5b8493e294883f46705da5268e7034eb.jpg', 1),
+(26, 'Festival de Pipas', '03719-000', 'Rua Guira', '8055 ', '', 'Jardim Santo Onofre', 'São Paulo', 'SP', '2024-05-04', '2024-06-30', '4', '2', '1', '1', 'Um dia dedicado a construir e voar pipas no parque. As crianças podem aprender a fazer suas próprias pipas simples utilizando papel, bambu e linha. Após a construção, elas podem competir em categorias como maior tempo de voo, maior altura alcançada e criatividade na decoração da pipa.', 20, 'a00e6d94e8e2a2d5b29f1237d550ce47.jpg', 1),
+(27, 'Dia do Picnic Criativo', '03719-000', 'Rua Guira', '8055', '', 'Jardim Santo Onofre', 'São Paulo', 'SP', '2024-06-10', '2024-07-30', '4', '2', '2', '1', 'Um evento onde as crianças podem trazer suas cestas de picnic e participar de atividades criativas como pintura com giz de calçada, montagem de pequenos terrários com elementos naturais do parque, e contação de histórias ao redor de uma toalha estendida no gramado.', 20, '17039a9ae54a46e1c7bdeb8750ff93fa.jpg', 1),
+(28, 'Observação de Estrelas', '03719-000', 'Rua Guira', '8055', '', 'Jardim Santo Onofre', 'São Paulo', 'SP', '2024-06-01', '2024-07-30', '4', '3', '1', '1', 'Um evento noturno onde as crianças têm a oportunidade de observar o céu estrelado usando telescópios e binóculos. Guiados por astrônomos amadores ou especialistas, podem aprender sobre constelações, planetas visíveis e curiosidades sobre o universo.\r\n', 20, '249544acff687329c832fcedc533ed49.jpg', 1),
+(29, 'Oficina de Arte Interativa', '01413-100', 'Rua Augusta', '2823', '', 'Cerqueira César', 'São Paulo', 'SP', '2024-05-06', '2024-07-27', '4', '2', '1', '2', 'Uma oficina onde as crianças podem criar suas próprias obras de arte inspiradas nas coleções do museu. Podem usar diferentes técnicas como pintura, colagem, modelagem com argila ou até mesmo arte digital, dependendo das instalações do museu.', 15, 'cac89aeb5b6f24863f74df2f6e7da6e3.jpg', 1),
+(30, 'Contação de Histórias Multissensorial', '01413-100', 'Rua Augusta', '2328', '', 'Cerqueira César', 'São Paulo', 'SP', '2024-05-04', '2024-06-27', '3', '2', '1', '2', 'Sessões de contação de histórias que envolvem não apenas a narrativa oral, mas também elementos sensoriais como músicas, aromas e texturas relacionadas aos temas das exposições do museu. Pode incluir histórias tradicionais, mitos culturais ou contos de aventura', 15, 'ec08d4010bc1600cc49d1ecb692c308d.jpg', 1),
+(31, 'Festival de Culturas', '01413-100', 'Rua Augusta', '2328', '', 'Cerqueira César', 'São Paulo', 'SP', '2024-05-06', '2024-06-27', '3', '2', '1', '2', 'Um evento que celebra a diversidade cultural através de apresentações de danças folclóricas, músicas tradicionais, demonstrações culinárias e oficinas artísticas inspiradas em diferentes culturas representadas nas exposições do museu.', 15, 'bd2f722cdef63b29c30b2e437bbffc92.jpg', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbfeedbackapp`
+-- Estrutura da tabela `tbfeedbackapp`
 --
 
 CREATE TABLE `tbfeedbackapp` (
@@ -178,7 +165,7 @@ CREATE TABLE `tbfeedbackapp` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbinteresseevento`
+-- Estrutura da tabela `tbinteresseevento`
 --
 
 CREATE TABLE `tbinteresseevento` (
@@ -188,18 +175,61 @@ CREATE TABLE `tbinteresseevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbinteresseevento`
+-- Extraindo dados da tabela `tbinteresseevento`
 --
 
 INSERT INTO `tbinteresseevento` (`idInteresseEvento`, `idUsuario`, `idEvento`) VALUES
-(15, 7, 13),
-(16, 7, 14),
-(17, 7, 15);
+(15, 8, 11),
+(16, 8, 13),
+(17, 8, 25),
+(18, 8, 23),
+(19, 9, 11),
+(20, 9, 13),
+(21, 9, 25),
+(22, 9, 23),
+(23, 9, 12),
+(24, 10, 11),
+(25, 10, 13),
+(26, 10, 25),
+(27, 10, 20),
+(28, 10, 23),
+(29, 11, 11),
+(30, 11, 12),
+(31, 11, 14),
+(32, 11, 25),
+(33, 12, 25),
+(34, 12, 11),
+(35, 12, 14),
+(36, 12, 20),
+(37, 13, 25),
+(38, 13, 14),
+(39, 13, 11),
+(40, 13, 23),
+(42, 14, 12),
+(43, 14, 11),
+(44, 14, 20),
+(45, 14, 23),
+(47, 15, 14),
+(48, 15, 11),
+(49, 15, 12),
+(50, 15, 15),
+(52, 16, 11),
+(53, 16, 12),
+(54, 16, 17),
+(55, 16, 25),
+(56, 16, 20),
+(58, 17, 13),
+(59, 17, 11),
+(60, 17, 12),
+(61, 17, 14),
+(62, 17, 25),
+(63, 17, 20),
+(64, 17, 23);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tborganizacaoevento`
+-- Estrutura da tabela `tborganizacaoevento`
 --
 
 CREATE TABLE `tborganizacaoevento` (
@@ -223,23 +253,22 @@ CREATE TABLE `tborganizacaoevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tborganizacaoevento`
+-- Extraindo dados da tabela `tborganizacaoevento`
 --
 
 INSERT INTO `tborganizacaoevento` (`idOrganizacaoEvento`, `nomeOrganizacaoEvento`, `cnpjOrganizacaoEvento`, `cepOrganizacaoEvento`, `enderecoOrganizacaoEvento`, `numeroOrganizacaoEvento`, `complementoOrganizacaoEvento`, `bairroOrganizacaoEvento`, `cidadeOrganizacaoEvento`, `ufOrganizacaoEvento`, `telOrganizacaoEvento`, `emailOrganizacaoEvento`, `senhaOrganizacaoEvento`, `linkSiteOrganizacaoEvento`, `imagemOrganizacaoEvento`, `descOrganizacaoEvento`, `idSituacaoOrganizacaoEvento`) VALUES
-(14, 'Teatro das Artes', '08.505.736/0003-95', '05402-60', 'Avenida Rebouças', '3970', '', 'Pinheiros', 'São Paulo', 'SP', '(11)30340-075', 'teatro@artes.com', 'Senha12345$', NULL, NULL, NULL, 2),
-(15, 'Teatro Procópio Ferreira', '01.148.183/0001-50', '01413-10', 'Rua Augusta', '2823', '', 'Cerqueira César', 'São Paulo', 'SP', '(11)30834-475', 'teatroprocopio@ferreira.com', 'Senha12345$', NULL, NULL, NULL, 2),
-(16, 'Teatro oul', '59.596.908/0001-52', '01238-00', 'Avenida Higienópolis', '618', '', 'Higienópolis', 'São Paulo', 'SP', '(11)38232-323', 'teatro@oul.com', 'Senha12345$', NULL, NULL, NULL, 2),
-(17, 'Teatro Ruth Escobar', '28.624.310/0001-04', '01329-00', 'Rua dos Ingleses', '209', '', 'Morro dos Ingleses', 'São Paulo', 'SP', '(11)32892-358', 'teatroruth@escobar.com', 'Senha12345$', NULL, NULL, NULL, 2),
-(18, 'Teatro Mooca', '16.515.454/0001-35', '03126-00', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '(99)88500-22', 'teatro@mooca.com', 'Senha12345$', NULL, NULL, NULL, 2),
-(19, 'Parque Ecológico do Tiête', '06.231.760/0001-96', '03719-00', 'Via Parque', '8055', '', 'Vila Santo Henrique', 'São Paulo', 'SP', '(11)28232-250', 'parque@ecologicotiete.com', 'Senha12345$', NULL, NULL, NULL, 3),
-(20, 'Prefeitura de São Paulo', '63.002.141/0001-63', '01002-02', 'Viaduto do Chá', '15', '', 'Centro', 'São Paulo', 'SP', '(00)00000-0000', 'prefeitura@sp.com', 'Senha12345$', NULL, NULL, NULL, 2),
-(21, 'Centro Cultural São Paulo', '49.269.244/0006-78', '01504-00', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '(11)33974-002', 'centrocultural@sp.com', 'Senha12345$', NULL, NULL, NULL, 2);
+(14, 'Teatro das Artes', '08.505.736/0003-95', '05402-60', 'Avenida Rebouças', '3970', '', 'Pinheiros', 'São Paulo', 'SP', '11-30340-075', 'teatro@artes.com', 'Senha12345$', 'http://teatrodasartessp.com.br', '1c5eaf573934caedc41851389492da6e.jpg', 'Localizado no coração da cidade de São Paulo, junto à Av. Faria Lima e a Marginal Pinheiros, o Teatro das Artes tem capacidade para 769 lugares e está localizado no Shopping Eldorado, por onde circulam milhares de pessoas mensalmente.\r\nA casa caracteriza-se tanto como espaço de apresentação de espetáculos teatrais, como de realização de diversos generos, sendo dotada de uma estrutura dinâmica e elegante para recepcionar o público . Possui com um ampla bomboniére e salas complementares às instala', 2),
+(15, 'Teatro Procópio Ferreira', '01.148.183/0001-50', '01413-10', 'Rua Augusta', '2823', '', 'Cerqueira César', 'São Paulo', 'SP', '11-30834-475', 'teatroprocopio@ferreira.com', 'Senha12345$', 'https://teatroprocopioferreira.com.br', 'd3c7be8b0435115a9032a062eacc0d4e.jpg', 'Construído em 1948, o Teatro Procópio Ferreira é hoje um dos principais pontos culturais da cidade de São Paulo. Durante seis anos, seu palco foi cenário do famoso programa humorístico \"Sai de Baixo\", exibido pela Rede Globo entre 1996 e 2002.', 2),
+(16, 'Teatro oul', '59.596.908/0001-52', '01238-00', 'Avenida Higienópolis', '618', '', 'Higienópolis', 'São Paulo', 'SP', '11-38232-323', 'teatro@oul.com', 'Senha12345$', 'https://teatrouol.com.br', '37856cb0316baab47eecf9ad6268ef2c.jpg', 'O Teatro Uol é consagrado como um dos mais sofisticados espaços culturais da cidade, oferecendo ao público grande diversidade de linguagens artísticas e garantindo a qualidade de cada espetáculo.', 2),
+(17, 'Teatro Ruth Escobar', '28.624.310/0001-04', '01329-00', 'Rua dos Ingleses', '209', '', 'Morro dos Ingleses', 'São Paulo', 'SP', '11-32892-358', 'teatroruth@escobar.com', 'Senha12345$', 'https://www.teatroruthescobar.com.br', '51cd228795603ed38c8fd0f8fb98a64b.jpg', 'O teatro Ruth Escobar foi fundado em 1963 na rua dos Ingleses em São Paulo, SP. O teatro leva o nome da atriz e antiga proprietária do terreno onde foi erguido, Ruth Escobar. A inauguração do teatro também contou com apoio da coletividade portuguesa de São Paulo.', 2),
+(18, 'Teatro Mooca', '16.515.454/0001-35', '03126-00', 'Rua Capitão Pacheco e Chaves', '313', '', 'Vila Prudente', 'São Paulo', 'SP', '99-88500-22', 'teatro@mooca.com', 'Senha12345$', 'https://www.teatromooca.com.br', '69760fc6058232d2288ea9a8c473661f.jpg', 'Voltado para toda a família e público em geral, o Teatro Mooca possuí características únicas, aconchegante, com localização privilegiada em um dos melhores shopping centers da cidade, o Mooca Plaza Shopping, e totalmente pronto para receber os maiores espetáculos, shows e eventos.', 2),
+(20, 'Prefeitura de São Paulo', '63.002.141/0001-63', '01002-02', 'Viaduto do Chá', '15', '', 'Centro', 'São Paulo', 'SP', '00-00000-0000', 'prefeitura@sp.com', 'Senha12345$', 'https://www.capital.sp.gov.br', 'ce2a101db8ac6ad6e82dfdd5709c1484.jpg', 'A Prefeitura de São Paulo desempenha um papel fundamental na gestão e no desenvolvimento da cidade, trabalhando para atender às necessidades e aos interesses dos cidadãos paulistanos.', 2),
+(21, 'Centro Cultural São Paulo', '49.269.244/0006-78', '01504-00', 'Rua Vergueiro', '1000', '', 'Liberdade', 'São Paulo', 'SP', '11-33974-002', 'centrocultural@sp.com', 'Senha12345$', 'https://centrocultural.sp.gov.br/', '268da41786a1e91bf82438a8bbaf8b6c.jpg', 'Inaugurado em 1982, o Centro Cultural São Paulo é um dos primeiros centros culturais multidisciplinares do país. Lugar público por excelência, combina a oferta de programação e de serviços culturais – gratuitos ou a preços acessíveis.', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbpublicacao`
+-- Estrutura da tabela `tbpublicacao`
 --
 
 CREATE TABLE `tbpublicacao` (
@@ -254,7 +283,7 @@ CREATE TABLE `tbpublicacao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbsituacaoevento`
+-- Estrutura da tabela `tbsituacaoevento`
 --
 
 CREATE TABLE `tbsituacaoevento` (
@@ -263,7 +292,7 @@ CREATE TABLE `tbsituacaoevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbsituacaoevento`
+-- Extraindo dados da tabela `tbsituacaoevento`
 --
 
 INSERT INTO `tbsituacaoevento` (`idSituacaoEvento`, `situacaoEvento`) VALUES
@@ -273,7 +302,7 @@ INSERT INTO `tbsituacaoevento` (`idSituacaoEvento`, `situacaoEvento`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbsituacaoorganizacaoevento`
+-- Estrutura da tabela `tbsituacaoorganizacaoevento`
 --
 
 CREATE TABLE `tbsituacaoorganizacaoevento` (
@@ -282,7 +311,7 @@ CREATE TABLE `tbsituacaoorganizacaoevento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbsituacaoorganizacaoevento`
+-- Extraindo dados da tabela `tbsituacaoorganizacaoevento`
 --
 
 INSERT INTO `tbsituacaoorganizacaoevento` (`idSituacaoOrganizacaoEvento`, `situacaoOrganizacaoEvento`) VALUES
@@ -293,7 +322,7 @@ INSERT INTO `tbsituacaoorganizacaoevento` (`idSituacaoOrganizacaoEvento`, `situa
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbsituacaopublicacao`
+-- Estrutura da tabela `tbsituacaopublicacao`
 --
 
 CREATE TABLE `tbsituacaopublicacao` (
@@ -302,7 +331,7 @@ CREATE TABLE `tbsituacaopublicacao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbsituacaopublicacao`
+-- Extraindo dados da tabela `tbsituacaopublicacao`
 --
 
 INSERT INTO `tbsituacaopublicacao` (`idSituacaoPublicacao`, `situacaoPublicacao`) VALUES
@@ -312,7 +341,7 @@ INSERT INTO `tbsituacaopublicacao` (`idSituacaoPublicacao`, `situacaoPublicacao`
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtokenadmin`
+-- Estrutura da tabela `tbtokenadmin`
 --
 
 CREATE TABLE `tbtokenadmin` (
@@ -324,7 +353,7 @@ CREATE TABLE `tbtokenadmin` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtokenorganizacaoevento`
+-- Estrutura da tabela `tbtokenorganizacaoevento`
 --
 
 CREATE TABLE `tbtokenorganizacaoevento` (
@@ -336,7 +365,7 @@ CREATE TABLE `tbtokenorganizacaoevento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbtokenusuario`
+-- Estrutura da tabela `tbtokenusuario`
 --
 
 CREATE TABLE `tbtokenusuario` (
@@ -348,7 +377,7 @@ CREATE TABLE `tbtokenusuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbusuario`
+-- Estrutura da tabela `tbusuario`
 --
 
 CREATE TABLE `tbusuario` (
@@ -363,16 +392,25 @@ CREATE TABLE `tbusuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `tbusuario`
+-- Extraindo dados da tabela `tbusuario`
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `sobrenomeUsuario`, `emailUsuario`, `senhaUsuario`, `telUsuario`, `imagemPerfilUsuario`, `imagemBannerUsuario`) VALUES
-(7, 'Usuário', 'Teste', 'usuario@teste.com', '1234', '(11)77777-7777', 'e948d34aa5220121b6cce26dd23858c8.jpg', '27dec93c909e14c0e868924ea98b101b.jpg');
+(8, 'Otavio', 'Ferreira', 'otavioferreira@gmail.com', 'Senha12345$', '(11)94858-5332', '0c78775efd2907d22b88b997991a3e97.jpg', '97b658508e7496437e945e9cfb0de7aa.jpg'),
+(9, 'Marcia', 'Stevão', 'marciaste090@gmail.com', 'Senha12345$', '(11)99485-8292', '513666f6ed44b78c3af963420606c78a.jpg', '21938780b374da769e72656f3c608001.jpg'),
+(10, 'Sebastião', 'Mendonça', 'sebastiaomendonc542@gmail.com', 'Senha12345$', '(11)98573-6327', 'b132163a9b2fa5e6f5984bf140ee693d.jpg', '87b097306ee49e1fb8bfa670d936d796.jpg'),
+(11, 'Rubia', 'Silveira', 'rubia3857@uol.com.br', 'Senha12345$', '(11)99683-7323', '39e991743617d1930c465afa9c55adc7.jpg', '50bf0d7dc1aeba56a0457573aa6cbb48.jpg'),
+(12, 'Rafael ', 'dos Reis', 'rafaeldosreis@gmai.com', 'Senha12345$', '(11)43485-3384', 'a783fecb9e4f260785ad2580847f3ced.jpg', 'c44744b4ca0c565b822c831545b323e5.jpg'),
+(13, 'Ivair', 'Almeida', 'ivaalmeida@bol.com', 'Senha12345$', '(11)45959-3930', '03bb7d75bd8b0bc50abe9162966875bf.jpg', '2e177dd754f3566269fbdace8d67ee1a.jpg'),
+(14, 'Lucicleide', 'Carvalho', 'lucicarvalho0879@bol.com.br', 'Senha12345$', '(11)92747-5362', '02c4adad6b5549b000dd5b4fb8777d18.jpg', '9f05d1555f65c6cda26433c399c0f4d9.jpg'),
+(15, 'Giovanna ', 'Gigante', 'giovannagigan0938@gmail.com', 'Senha12345$', '(11)94573-6289', '75b207f82218823bbc35c842612193d6.jpg', '0959294662ebe797cb3cd650ce218202.jpg'),
+(16, 'Emily', 'Souza', 'emilysouza9583@oul.com', 'Senha12345$', '(11)94768-4837', 'bf8c6521d7a4e0eefd340969287dddc4.jpg', '32153e03f71733549bf83f9d19f382b6.jpg'),
+(17, 'Joana', 'Magalhães', 'joanamaga9649@oul.com', 'Senha12345$', '(11)95738-2277', '4679625acc7ec5cbe4da533b53ee4757.jpg', 'b60716e5c377787ce1938c602571a227.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbusuarioseguindo`
+-- Estrutura da tabela `tbusuarioseguindo`
 --
 
 CREATE TABLE `tbusuarioseguindo` (
@@ -382,11 +420,57 @@ CREATE TABLE `tbusuarioseguindo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Extraindo dados da tabela `tbusuarioseguindo`
+--
+
+INSERT INTO `tbusuarioseguindo` (`idSeguindo`, `idUsuario`, `idOrganizacaoEvento`) VALUES
+(1, 8, 16),
+(2, 8, 20),
+(3, 8, 21),
+(4, 9, 14),
+(5, 9, 16),
+(7, 9, 20),
+(8, 9, 21),
+(9, 9, 15),
+(10, 10, 14),
+(11, 10, 16),
+(12, 10, 20),
+(13, 10, 21),
+(14, 11, 14),
+(15, 11, 15),
+(16, 11, 17),
+(17, 11, 20),
+(18, 12, 20),
+(19, 12, 14),
+(20, 12, 17),
+(21, 13, 20),
+(22, 13, 17),
+(23, 13, 14),
+(24, 13, 21),
+(25, 14, 20),
+(26, 14, 15),
+(27, 14, 14),
+(28, 14, 21),
+(29, 15, 14),
+(30, 15, 17),
+(31, 15, 15),
+(32, 15, 18),
+(33, 16, 14),
+(34, 16, 15),
+(35, 16, 18),
+(36, 16, 20),
+(37, 17, 14),
+(38, 17, 16),
+(39, 17, 15),
+(40, 17, 17),
+(41, 17, 20);
+
+--
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `tbadmin`
+-- Índices para tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
   ADD PRIMARY KEY (`idAdmin`),
@@ -394,19 +478,19 @@ ALTER TABLE `tbadmin`
   ADD UNIQUE KEY `emailAdmin` (`emailAdmin`);
 
 --
--- Índices de tabela `tbcategoriacontatoorganizacaoevento`
+-- Índices para tabela `tbcategoriacontatoorganizacaoevento`
 --
 ALTER TABLE `tbcategoriacontatoorganizacaoevento`
   ADD PRIMARY KEY (`idCategoriaContatoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbcategoriacontatousuario`
+-- Índices para tabela `tbcategoriacontatousuario`
 --
 ALTER TABLE `tbcategoriacontatousuario`
   ADD PRIMARY KEY (`idCategoriaContatoUsuario`);
 
 --
--- Índices de tabela `tbcontatoorganizacaoevento`
+-- Índices para tabela `tbcontatoorganizacaoevento`
 --
 ALTER TABLE `tbcontatoorganizacaoevento`
   ADD PRIMARY KEY (`idContatoOrganizacaoEvento`),
@@ -414,7 +498,7 @@ ALTER TABLE `tbcontatoorganizacaoevento`
   ADD KEY `fk_categoriaContato` (`idCategoriaContatoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbcontatousuario`
+-- Índices para tabela `tbcontatousuario`
 --
 ALTER TABLE `tbcontatousuario`
   ADD PRIMARY KEY (`idContatoUsuario`),
@@ -422,7 +506,7 @@ ALTER TABLE `tbcontatousuario`
   ADD KEY `fk_categoriaContatoUsuario` (`idCategoriaContatoUsuario`);
 
 --
--- Índices de tabela `tbevento`
+-- Índices para tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD PRIMARY KEY (`idEvento`),
@@ -430,14 +514,14 @@ ALTER TABLE `tbevento`
   ADD KEY `fk_situacaoEvento` (`idSituacaoEvento`);
 
 --
--- Índices de tabela `tbfeedbackapp`
+-- Índices para tabela `tbfeedbackapp`
 --
 ALTER TABLE `tbfeedbackapp`
   ADD PRIMARY KEY (`idFeedBackApp`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Índices de tabela `tbinteresseevento`
+-- Índices para tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
   ADD PRIMARY KEY (`idInteresseEvento`),
@@ -445,14 +529,14 @@ ALTER TABLE `tbinteresseevento`
   ADD KEY `idEvento` (`idEvento`);
 
 --
--- Índices de tabela `tborganizacaoevento`
+-- Índices para tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
   ADD PRIMARY KEY (`idOrganizacaoEvento`),
   ADD KEY `fk_tbSituacaoOrganizacaoEvento` (`idSituacaoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbpublicacao`
+-- Índices para tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD PRIMARY KEY (`idPublicacao`),
@@ -460,52 +544,52 @@ ALTER TABLE `tbpublicacao`
   ADD KEY `fk_idSituacaoPub` (`idSituacaoPublicacao`);
 
 --
--- Índices de tabela `tbsituacaoevento`
+-- Índices para tabela `tbsituacaoevento`
 --
 ALTER TABLE `tbsituacaoevento`
   ADD PRIMARY KEY (`idSituacaoEvento`);
 
 --
--- Índices de tabela `tbsituacaoorganizacaoevento`
+-- Índices para tabela `tbsituacaoorganizacaoevento`
 --
 ALTER TABLE `tbsituacaoorganizacaoevento`
   ADD PRIMARY KEY (`idSituacaoOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbsituacaopublicacao`
+-- Índices para tabela `tbsituacaopublicacao`
 --
 ALTER TABLE `tbsituacaopublicacao`
   ADD PRIMARY KEY (`idSituacaoPublicacao`);
 
 --
--- Índices de tabela `tbtokenadmin`
+-- Índices para tabela `tbtokenadmin`
 --
 ALTER TABLE `tbtokenadmin`
   ADD PRIMARY KEY (`idTokenAdmin`),
   ADD KEY `idAdmin` (`idAdmin`);
 
 --
--- Índices de tabela `tbtokenorganizacaoevento`
+-- Índices para tabela `tbtokenorganizacaoevento`
 --
 ALTER TABLE `tbtokenorganizacaoevento`
   ADD PRIMARY KEY (`idTokenOrganizacaoEvento`),
   ADD KEY `idOrganizacaoEvento` (`idOrganizacaoEvento`);
 
 --
--- Índices de tabela `tbtokenusuario`
+-- Índices para tabela `tbtokenusuario`
 --
 ALTER TABLE `tbtokenusuario`
   ADD PRIMARY KEY (`idTokenUsuario`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Índices de tabela `tbusuario`
+-- Índices para tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- Índices de tabela `tbusuarioseguindo`
+-- Índices para tabela `tbusuarioseguindo`
 --
 ALTER TABLE `tbusuarioseguindo`
   ADD PRIMARY KEY (`idSeguindo`),
@@ -513,7 +597,7 @@ ALTER TABLE `tbusuarioseguindo`
   ADD KEY `idOrganizacaoEvento` (`idOrganizacaoEvento`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -526,13 +610,13 @@ ALTER TABLE `tbadmin`
 -- AUTO_INCREMENT de tabela `tbcategoriacontatoorganizacaoevento`
 --
 ALTER TABLE `tbcategoriacontatoorganizacaoevento`
-  MODIFY `idCategoriaContatoOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCategoriaContatoOrganizacaoEvento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriacontatousuario`
 --
 ALTER TABLE `tbcategoriacontatousuario`
-  MODIFY `idCategoriaContatoUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCategoriaContatoUsuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tbcontatoorganizacaoevento`
@@ -550,7 +634,7 @@ ALTER TABLE `tbcontatousuario`
 -- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
-  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `tbfeedbackapp`
@@ -562,7 +646,7 @@ ALTER TABLE `tbfeedbackapp`
 -- AUTO_INCREMENT de tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
-  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idInteresseEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de tabela `tborganizacaoevento`
@@ -616,60 +700,60 @@ ALTER TABLE `tbtokenusuario`
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `tbusuarioseguindo`
 --
 ALTER TABLE `tbusuarioseguindo`
-  MODIFY `idSeguindo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSeguindo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `tbcontatoorganizacaoevento`
+-- Limitadores para a tabela `tbcontatoorganizacaoevento`
 --
 ALTER TABLE `tbcontatoorganizacaoevento`
   ADD CONSTRAINT `fk_categoriaContato` FOREIGN KEY (`idCategoriaContatoOrganizacaoEvento`) REFERENCES `tbcategoriacontatoorganizacaoevento` (`idCategoriaContatoOrganizacaoEvento`),
   ADD CONSTRAINT `tbcontatoorganizacaoevento_ibfk_1` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`);
 
 --
--- Restrições para tabelas `tbcontatousuario`
+-- Limitadores para a tabela `tbcontatousuario`
 --
 ALTER TABLE `tbcontatousuario`
   ADD CONSTRAINT `fk_categoriaContatoUsuario` FOREIGN KEY (`idCategoriaContatoUsuario`) REFERENCES `tbcategoriacontatousuario` (`idCategoriaContatoUsuario`),
   ADD CONSTRAINT `tbcontatousuario_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Restrições para tabelas `tbevento`
+-- Limitadores para a tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD CONSTRAINT `fk_situacaoEvento` FOREIGN KEY (`idSituacaoEvento`) REFERENCES `tbsituacaoevento` (`idSituacaoEvento`),
   ADD CONSTRAINT `tbevento_ibfk_1` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`);
 
 --
--- Restrições para tabelas `tbfeedbackapp`
+-- Limitadores para a tabela `tbfeedbackapp`
 --
 ALTER TABLE `tbfeedbackapp`
   ADD CONSTRAINT `tbfeedbackapp_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Restrições para tabelas `tbinteresseevento`
+-- Limitadores para a tabela `tbinteresseevento`
 --
 ALTER TABLE `tbinteresseevento`
   ADD CONSTRAINT `tbinteresseevento_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
   ADD CONSTRAINT `tbinteresseevento_ibfk_2` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`);
 
 --
--- Restrições para tabelas `tborganizacaoevento`
+-- Limitadores para a tabela `tborganizacaoevento`
 --
 ALTER TABLE `tborganizacaoevento`
   ADD CONSTRAINT `fk_tbSituacaoOrganizacaoEvento` FOREIGN KEY (`idSituacaoOrganizacaoEvento`) REFERENCES `tbsituacaoorganizacaoevento` (`idSituacaoOrganizacaoEvento`);
 
 --
--- Restrições para tabelas `tbpublicacao`
+-- Limitadores para a tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD CONSTRAINT `fk_OrganizacaoEvento_tbPub` FOREIGN KEY (`idOrganizacaoEvento`) REFERENCES `tborganizacaoevento` (`idOrganizacaoEvento`),
